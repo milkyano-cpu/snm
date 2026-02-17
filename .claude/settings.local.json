@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__figma__get_design_context",
+      "mcp__figma__get_screenshot",
+      "Bash(npm run build:*)",
+      "Bash(npm run lint)",
+      "Bash(sort:*)",
+      "Bash(xxd:*)",
+      "Bash(bash \"C:/Users/Rani/milkyano/snm/download_assets.sh\")"
+    ]
+  }
+}
