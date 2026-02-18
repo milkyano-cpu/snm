@@ -14,8 +14,8 @@ import { ScaleWrapper } from "../components/ScaleWrapper";
 export default function Home() {
     return (
         <>
-            <HeroSection />
             <ScaleWrapper>
+            <HeroSection />
                 <FeaturesBar />
                 <AtmosphereSection />
                 <CommunityRulesSection />
