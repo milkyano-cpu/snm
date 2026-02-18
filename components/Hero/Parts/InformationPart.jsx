@@ -5,21 +5,24 @@ import Paperclip from "@/icons/PaperclipIcon";
 
 export default function InformationPart() {
   return (
-    <div className="flex flex-col items-start gap-8">
-      <div>
+    <div className="flex flex-col items-start gap-8 font-outfit">
+      <div className="flex flex-col gap-1">
         <div className="flex items-center gap-2">
-          <Calendar className="h-10 w-10" />
-          <p>28th Febuary, 6PM - Late</p>
+          <Calendar className="h-8 w-8 shrink-0" />
+          <p className="font-bold text-lg tracking-tight">
+            28th Febuary, 6PM &ndash; Late
+          </p>
         </div>
-        <div className="flex items-center gap-2">
-          <LocationIcon className="h-10 w-10" />
-          <div>
-            <p>Lorbek Luxury Cars, 1/30 Prohasky St,</p>
-            <p>Port Melbourne VIC 3207</p>
-          </div>
+        <div className="flex items-start gap-2">
+          <LocationIcon className="h-8 w-8 shrink-0" />
+          <p className="text-lg tracking-tight">
+            <span className="font-bold">Lorbek Luxury Cars,</span> 1/30 Prohasky St,
+            <br />
+            Port Melbourne VIC 3207
+          </p>
         </div>
       </div>
-      <Button 
+      <Button
         icon={<Paperclip className="h-10 w-10 text-white" />}
         text={"REGISTER / JOIN MEET"}
       />
