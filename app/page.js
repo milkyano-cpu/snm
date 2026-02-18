@@ -10,15 +10,16 @@ import { RegistrationForm } from "../components/RegistrationForm";
 import { GallerySection } from "../components/GallerySection";
 import { FooterSection } from "../components/FooterSection";
 import { ScaleWrapper } from "../components/ScaleWrapper";
+import RulesSection from "../components/Rules/RulesSection";
 
 export default function Home() {
     return (
         <>
             <HeroSection />
             <FeatureSection />
+            <RulesSection />
+            
             <ScaleWrapper>
-                <AtmosphereSection />
-                <CommunityRulesSection />
                 <VIPCriteriaSection />
                 <VIPApplySection />
                 <YourCarSection />
