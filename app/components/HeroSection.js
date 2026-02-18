@@ -1,4 +1,6 @@
 import { ASSETS } from "./assets";
+import PaperclipIcon from "../icons/PaperclipIcon"
+import Button from "./Button";
 
 export function HeroSection() {
   return (
@@ -160,20 +162,7 @@ export function HeroSection() {
 
         {/* CTA button — REGISTER / JOIN MEET */}
         <div className="absolute h-[64.305px] left-[265px] top-[726.18px] w-[359px]">
-          <div className="-translate-x-1/2 absolute bg-white h-[64.305px] left-1/2 rounded-[46.263px] top-0 w-[359px]" />
-          <p className="absolute font-outfit font-medium leading-normal left-[88px] not-italic text-[24.648px] text-black top-[23.29px] tracking-[-1.2324px]">
-            REGISTER / JOIN MEET
-          </p>
-          <div className="absolute left-[6.48px] size-[53.665px] top-[5.55px]">
-            <img alt="" className="absolute block inset-0 max-w-none" src={ASSETS.ellipse16} />
-            <div className="-translate-x-1/2 -translate-y-1/2 absolute left-[calc(50%-0.31px)] overflow-clip size-[11.429px] top-[calc(50%+0.44px)]">
-              <div className="absolute inset-[5.78%_10.67%_8.34%_8.34%]">
-                <div className="absolute inset-[-4.16%_-4.41%]">
-                  <img alt="" className="block max-w-none size-full" src={ASSETS.paperclipIcon} />
-                </div>
-              </div>
-            </div>
-          </div>
+          <Button icon={<PaperclipIcon className="h-10 w-10 text-white" />} text="REGISTER / JOIN MEET" />
         </div>
 
         {/* Logos: SNM + sponsors */}
