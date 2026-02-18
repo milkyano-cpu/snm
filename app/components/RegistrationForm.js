@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback } from "react";
 import { ASSETS } from "./assets";
+import Button from "./Button";
 
 const API_BASE = "https://api.alphaomegamensgrooming.com/api/form-submissions";
 const PABBLY_WEBHOOK_URL =
@@ -30,10 +31,16 @@ const FIELD_CONFIG = [
 
 const INITIAL_FORM_DATA = Object.fromEntries(FIELD_CONFIG.map((f) => [f.key, ""]));
 
+function CameraIcon({ className }) {
+  return (
+    <img alt="" className={className} src={ASSETS.cameraIcon2} />
+  );
+}
+
 export function RegistrationForm() {
   const [formData, setFormData] = useState(INITIAL_FORM_DATA);
   const [errors, setErrors] = useState({});
-  const [submitState, setSubmitState] = useState("idle"); // idle | submitting | success | error
+  const [submitState, setSubmitState] = useState("idle");
   const [submitError, setSubmitError] = useState("");
   const initCalledRef = useRef(false);
 
@@ -78,6 +85,8 @@ export function RegistrationForm() {
   }, []);
 
   const handleSubmit = useCallback(async () => {
+    if (submitState === "submitting" || submitState === "success") return;
+
     const validationErrors = validate(formData);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -88,7 +97,6 @@ export function RegistrationForm() {
     setSubmitError("");
 
     try {
-      // Init spreadsheet on first submit
       if (!initCalledRef.current) {
         try {
           await fetch(`${API_BASE}/init-spreadsheet`, {
@@ -101,7 +109,7 @@ export function RegistrationForm() {
           });
           initCalledRef.current = true;
         } catch {
-          // Non-blocking — continue even if init fails
+          // Non-blocking
         }
       }
 
@@ -124,7 +132,7 @@ export function RegistrationForm() {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
-        }).catch(() => {}), // Pabbly errors are non-blocking
+        }).catch(() => {}),
       ]);
 
       if (apiResult.status === "fulfilled") {
@@ -137,47 +145,48 @@ export function RegistrationForm() {
       setSubmitState("error");
       setSubmitError(err.message || "Something went wrong. Please try again.");
     }
-  }, [formData, validate]);
+  }, [formData, validate, submitState]);
 
   return (
-    <>
-      {/* Registration card */}
-      <div className="-translate-x-1/2 absolute bg-black border-[3px] border-[rgba(255,255,255,0.49)] border-solid h-[1938px] left-[calc(50%-0.5px)] rounded-[100px] top-[5728px] w-[1429px]" />
-
-      {/* SNM logo inside form */}
-      <div className="-translate-x-1/2 absolute h-[73px] left-1/2 top-[5835px] w-[224px]">
+    <div className="-translate-x-1/2 absolute left-[calc(50%-0.5px)] top-[5728px] w-[1429px] bg-black border-[3px] border-[rgba(255,255,255,0.49)] border-solid rounded-[100px] flex flex-col items-center px-[240px] py-[100px]">
+      {/* SNM logo */}
+      <div className="relative h-[73px] w-[224px] mb-[64px]">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="SNM" className="absolute h-[377.14%] left-[-20.66%] max-w-none top-[-140%] w-[137.61%]" src={ASSETS.snmLogo} />
+          <img
+            alt="SNM"
+            className="absolute h-[377.14%] left-[-20.66%] max-w-none top-[-140%] w-[137.61%]"
+            src={ASSETS.snmLogo}
+          />
         </div>
       </div>
 
-      {/* REGISTRATION FORM heading */}
-      <p className="-translate-x-1/2 absolute font-outfit font-bold leading-normal left-1/2 not-italic text-[48px] text-center text-white top-[5972px] tracking-[-0.96px]">
+      {/* Heading */}
+      <h2 className="font-outfit font-bold leading-normal text-[48px] text-center text-white tracking-[-0.96px] mb-[60px]">
         REGISTRATION FORM
-      </p>
+      </h2>
 
-      {/* Form fields */}
-      <div className="absolute content-stretch flex flex-col gap-[28px] items-start left-[485px] top-[6094px] w-[950px]">
-        {submitState === "success" ? (
-          <div className="flex flex-col items-center justify-center w-full py-[120px]">
-            <p className="font-outfit font-bold text-[48px] text-white tracking-[-0.96px] text-center">
-              You&apos;re Registered!
-            </p>
-            <p className="font-dm-sans text-[24px] text-white/70 mt-[16px] text-center">
-              We&apos;ll send your event details and photos to your email.
-            </p>
-          </div>
-        ) : (
-          FIELD_CONFIG.map(({ key, label, type, placeholder, options }) => (
-            <div key={key} className="content-stretch flex flex-col gap-[17px] items-start relative shrink-0 w-full">
-              <p className="font-outfit leading-normal not-italic relative shrink-0 text-[36px] text-white tracking-[-0.72px] w-full whitespace-pre-wrap">
+      {/* Form area */}
+      {submitState === "success" ? (
+        <div className="flex flex-col items-center justify-center w-full py-[120px]">
+          <p className="font-outfit font-bold text-[48px] text-white tracking-[-0.96px] text-center">
+            You&apos;re Registered!
+          </p>
+          <p className="font-dm-sans text-[24px] text-white/70 mt-[16px] text-center">
+            We&apos;ll send your event details and photos to your email.
+          </p>
+        </div>
+      ) : (
+        <div className="flex flex-col gap-[28px] w-full">
+          {FIELD_CONFIG.map(({ key, label, type, placeholder, options }) => (
+            <div key={key} className="flex flex-col gap-[10px] w-full">
+              <label className="font-outfit leading-normal text-[20px] text-white tracking-[-0.4px]">
                 {label}
-              </p>
+              </label>
               {type === "select" ? (
                 <select
                   value={formData[key]}
                   onChange={(e) => handleChange(key, e.target.value)}
-                  className={`bg-white h-[60px] rounded-[8px] shrink-0 w-full px-[16px] font-dm-sans text-[20px] outline-none appearance-none cursor-pointer ${
+                  className={`bg-white h-[48px] rounded-[8px] w-full px-[16px] font-dm-sans text-[16px] outline-none appearance-none cursor-pointer ${
                     formData[key] ? "text-black" : "text-gray-400"
                   }`}
                 >
@@ -196,44 +205,32 @@ export function RegistrationForm() {
                   value={formData[key]}
                   onChange={(e) => handleChange(key, e.target.value)}
                   placeholder={placeholder}
-                  className="bg-white h-[60px] rounded-[8px] shrink-0 w-full px-[16px] font-dm-sans text-[20px] text-black outline-none"
+                  className="bg-white h-[48px] rounded-[8px] w-full px-[16px] font-dm-sans text-[16px] text-black outline-none"
                 />
               )}
               {errors[key] && (
-                <p className="font-dm-sans text-[16px] text-red-500 mt-[-8px]">{errors[key]}</p>
+                <p className="font-dm-sans text-[14px] text-red-500">{errors[key]}</p>
               )}
             </div>
-          ))
-        )}
-      </div>
+          ))}
 
-      {/* GET MY EVENT PHOTOS button */}
-      <button
-        type="button"
-        onClick={handleSubmit}
-        disabled={submitState === "submitting" || submitState === "success"}
-        className={`-translate-x-1/2 absolute h-[64.305px] left-[calc(50%-295.5px)] top-[7462px] w-[359px] border-none bg-transparent p-0 cursor-pointer ${
-          submitState === "submitting" || submitState === "success" ? "opacity-60 cursor-not-allowed" : ""
-        }`}
-      >
-        <div className="-translate-x-1/2 absolute bg-white h-[64.305px] left-1/2 rounded-[46.263px] top-0 w-[359px]" />
-        <p className="absolute font-outfit font-medium leading-normal left-[calc(50%-98.5px)] not-italic text-[24.648px] text-black top-[23.29px] tracking-[-1.2324px]">
-          {submitState === "submitting" ? "SUBMITTING..." : "GET MY EVENT PHOTOS"}
-        </p>
-        <div className="absolute left-[6px] size-[53.665px] top-[6px]">
-          <img alt="" className="absolute block inset-0 max-w-none" src={ASSETS.ellipse16} />
+          {/* Submit button + error */}
+          <div className="flex flex-col items-start gap-[12px] mt-[20px]">
+            <div
+              onClick={handleSubmit}
+              className={submitState === "submitting" ? "opacity-60 pointer-events-none" : "cursor-pointer"}
+            >
+              <Button
+                icon={<CameraIcon className="h-10 w-10 p-1.5" />}
+                text={submitState === "submitting" ? "SUBMITTING..." : "GET MY EVENT PHOTOS"}
+              />
+            </div>
+            {submitState === "error" && submitError && (
+              <p className="font-dm-sans text-[14px] text-red-500">{submitError}</p>
+            )}
+          </div>
         </div>
-        <div className="absolute inset-[32.66%_87.67%_32.74%_6.13%]">
-          <img alt="" className="absolute block inset-0 max-w-none" src={ASSETS.cameraIcon2} />
-        </div>
-      </button>
-
-      {/* Submit error message */}
-      {submitState === "error" && submitError && (
-        <p className="-translate-x-1/2 absolute font-dm-sans left-1/2 text-[18px] text-center text-red-500 top-[7540px] w-[600px]">
-          {submitError}
-        </p>
       )}
-    </>
+    </div>
   );
 }

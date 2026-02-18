@@ -1,4 +1,5 @@
 import { ASSETS } from "./assets";
+import { GlassCard } from "./GlassCard";
 
 export function PhotoProcessSection() {
   return (
@@ -11,7 +12,7 @@ export function PhotoProcessSection() {
       </div>
 
       {/* Glass card */}
-      <div className="-translate-x-1/2 absolute bg-[rgba(0,0,0,0.06)] border-[3px] border-[rgba(255,255,255,0.49)] border-solid h-[456px] left-[calc(50%-0.5px)] rounded-[40px] top-[5003px] w-[1429px]" />
+      <GlassCard className="-translate-x-1/2 absolute h-[456px] left-[calc(50%-0.5px)] top-[5003px] w-[1429px]" />
 
       {/* Step 1 number */}
       <div className="absolute left-[479.92px] size-[37.165px] top-[5125px]">

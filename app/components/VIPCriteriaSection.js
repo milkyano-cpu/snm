@@ -1,4 +1,5 @@
 import { ASSETS } from "./assets";
+import { GlassCard } from "./GlassCard";
 
 export function VIPCriteriaSection() {
   return (
@@ -15,7 +16,7 @@ export function VIPCriteriaSection() {
       </p>
 
       {/* VIP glass card */}
-      <div className="-translate-x-1/2 absolute bg-[rgba(0,0,0,0.06)] border-[3px] border-[rgba(255,255,255,0.49)] border-solid h-[613px] left-[calc(50%-0.5px)] rounded-[40px] top-[3021px] w-[1429px]" />
+      <GlassCard className="-translate-x-1/2 absolute h-[613px] left-[calc(50%-0.5px)] top-[3021px] w-[1429px]" />
 
       {/* VIP criteria list */}
       <div className="-translate-x-1/2 absolute h-[457px] left-[calc(50%-0.5px)] top-[3099px] w-[907px]">

@@ -1,4 +1,5 @@
 import { ASSETS } from "./assets";
+import { GlassCard } from "./GlassCard";
 
 export function FooterSection() {
   return (
@@ -34,7 +35,7 @@ export function FooterSection() {
       </div>
 
       {/* Footer card */}
-      <div className="absolute bg-[rgba(0,0,0,0.2)] border-[3px] border-[rgba(255,255,255,0.49)] border-solid content-stretch flex flex-col h-[863px] items-center justify-center left-[245px] px-[328px] py-[92px] rounded-[100px] top-[9613px] w-[1429px]">
+      <GlassCard bg="rgba(0,0,0,0.2)" borderRadius={100} className="absolute content-stretch flex flex-col h-[863px] items-center justify-center left-[245px] px-[328px] py-[92px] top-[9613px] w-[1429px]">
         <div className="content-stretch flex flex-col gap-[61px] items-center relative shrink-0 w-[771.571px]">
           {/* Logos row */}
           <div className="content-stretch flex gap-[31px] h-[78px] items-center relative shrink-0">
@@ -117,7 +118,7 @@ export function FooterSection() {
             </div>
           </div>
         </div>
-      </div>
+      </GlassCard>
 
       {/* Social icons */}
       <div className="-translate-x-1/2 absolute content-stretch flex gap-[14.557px] items-center left-1/2 top-[10604.52px]">

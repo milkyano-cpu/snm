@@ -1,4 +1,5 @@
 import { ASSETS } from "./assets";
+import { GlassCard } from "./GlassCard";
 
 export function FeaturesBar() {
   return (
@@ -16,7 +17,7 @@ export function FeaturesBar() {
       </div>
 
       {/* Glass card */}
-      <div className="-translate-x-1/2 absolute bg-[rgba(0,0,0,0.06)] border-[3px] border-[rgba(255,255,255,0.49)] border-solid h-[373px] left-[calc(50%-0.5px)] rounded-[40px] top-[1192px] w-[1429px]" />
+      <GlassCard className="-translate-x-1/2 absolute h-[373px] left-[calc(50%-0.5px)] top-[1192px] w-[1429px]" />
 
       {/* Features content — calc() positioning with translate */}
       <div className="-translate-x-1/2 -translate-y-1/2 absolute content-stretch flex gap-[57px] items-start left-[calc(50%-1px)] top-[calc(50%-4045px)]">
