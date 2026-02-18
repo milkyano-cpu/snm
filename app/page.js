@@ -1,5 +1,5 @@
 import HeroSection from "../components/Hero/HeroSection";
-import { FeaturesBar } from "../components/FeaturesBar";
+import FeatureSection from "../components/Feature/FeatureSection";
 import { AtmosphereSection } from "../components/AtmosphereSection";
 import { CommunityRulesSection } from "../components/CommunityRulesSection";
 import { VIPCriteriaSection } from "../components/VIPCriteriaSection";
@@ -15,8 +15,8 @@ export default function Home() {
     return (
         <>
             <HeroSection />
+            <FeatureSection />
             <ScaleWrapper>
-                <FeaturesBar />
                 <AtmosphereSection />
                 <CommunityRulesSection />
                 <VIPCriteriaSection />

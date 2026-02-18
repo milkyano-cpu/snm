@@ -1,6 +1,6 @@
-import CalendarIcon from "../../../app/icons/CalendarIcon";
-import LocationIcon from "../../../app/icons/LocationIcon";
-import PaperclipIcon from "../../../app/icons/PaperclipIcon";
+import CalendarIcon from "../../../icons/CalendarIcon";
+import LocationIcon from "../../../icons/LocationIcon";
+import PaperclipIcon from "../../../icons/PaperclipIcon";
 
 export default function InformationPart() {
   return (
