@@ -4,7 +4,7 @@ import FeaturesPart from "./Parts/FeaturesPart";
 export default function FeatureSection() {
   return (
     <section className="container">
-      <GlassCard className="flex justify-center items-center gap-8 py-8 px-8">
+      <GlassCard className="flex justify-center items-start gap-[57px] py-20 px-12">
         <FeaturesPart />
       </GlassCard>
     </section>

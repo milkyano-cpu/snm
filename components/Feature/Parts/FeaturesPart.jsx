@@ -1,7 +1,9 @@
+import { Fragment } from "react";
 import CameraIcon from "../../../icons/CameraIcon";
 import FoodTruckIcon from "../../../icons/FoodTruckIcon";
 import MotorCycleIcon from "../../../icons/MotorcycleIcon";
 import PremiumCarIcon from "../../../icons/PremiumCarIcon";
+import { ASSETS } from "../../assets";
 import PerFeature from "./PerFeature";
 
 const features = [
@@ -23,8 +25,25 @@ const features = [
   },
 ];
 
+function Divider() {
+  return (
+    <div className="flex h-[149px] items-center justify-center relative shrink-0 w-0">
+      <div className="flex-none rotate-90">
+        <div className="h-0 relative w-[149px]">
+          <div className="absolute inset-[-1.5px_0_0_0]">
+            <img alt="" className="block max-w-none size-full" src={ASSETS.dividerLine} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function FeaturesPart() {
   return features.map((feature, i) => (
-    <PerFeature key={i} icon={feature.icon} text={feature.text} />
+    <Fragment key={i}>
+      <PerFeature icon={feature.icon} text={feature.text} />
+      {i < features.length - 1 && <Divider />}
+    </Fragment>
   ));
 }
