@@ -1,8 +1,10 @@
+import Cloud from "@/textures/Cloud";
 import Image from "next/image";
 
 export default function ImagePart() {
   return (
-    <div className="w-[75%]">
+    <div className="w-[75%] absolute -top-20 -right-50">
+      <Cloud topClass="-top-30" leftClass=" left-20" />
       <Image
         src="/supercar-and-motorcycle.png"
         alt="Supercar and Motorcycle"

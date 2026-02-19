@@ -1,28 +1,21 @@
 import Image from "next/image";
 
-interface CloudProps {
-  topClass?: string;
-  rightClass?: string;
-  bottomClass?: string;
-  leftClass?: string;
-}
-
-export default function Cloud({
+export default function Bglorbrek({
   topClass,
   rightClass,
   bottomClass,
   leftClass,
-}: CloudProps) {
+}) {
   return (
     <div
       className={`absolute h-full w-full ${topClass ? topClass : ""} ${rightClass ? rightClass : ""} ${bottomClass ? bottomClass : ""} ${leftClass ? leftClass : ""}`}
     >
       <Image
-        src="https://s3.milkyano.com/snm-marketing-email/textures/cloud.svg"
-        alt="Cloud"
-        width={905}
-        height={659}
-        className="w-full"
+        src="/lorbek-dealer.png"
+        alt="backgroundlorbrek"
+        width={1920}
+        height={1400}
+        className="w-full h-full object-cover"
         loading="eager"
       />
     </div>
