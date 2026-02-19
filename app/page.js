@@ -22,7 +22,9 @@ export default function Home() {
             <PhotoProcessSection />
             <RegistrationForm />
             <GallerySection />
-            <FooterSection />
+            <ScaleWrapper>
+                <FooterSection />
+            </ScaleWrapper>
         </>
     );
 }
