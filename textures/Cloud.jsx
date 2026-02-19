@@ -5,17 +5,18 @@ export default function Cloud({
   rightClass,
   bottomClass,
   leftClass,
+  zIndexClass
 }) {
   return (
     <div
-      className={`absolute h-full w-full ${topClass ? topClass : ""} ${rightClass ? rightClass : ""} ${bottomClass ? bottomClass : ""} ${leftClass ? leftClass : ""}`}
+      className={`absolute h-full w-full ${topClass ? topClass : ""} ${rightClass ? rightClass : ""} ${bottomClass ? bottomClass : ""} ${leftClass ? leftClass : ""} ${zIndexClass ? zIndexClass : ""}`}
     >
       <Image
         src="https://s3.milkyano.com/snm-marketing-email/textures/cloud.svg"
         alt="Cloud"
         width={905}
         height={659}
-        className="w-full"
+        className="w-full h-full object-cover"
         loading="eager"
       />
     </div>

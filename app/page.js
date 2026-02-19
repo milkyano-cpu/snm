@@ -13,20 +13,16 @@ import { YourCarSection } from "../components/YourCarSection";
 export default function Home() {
     return (
         <>
-            
-            
-            <ScaleWrapper>
-                <HeroSection />
-                <FeatureSection />
-                <RulesSection />
-                <LimitedDisplaySection />
-                <VIPApplySection />
-                <YourCarSection />
-                <PhotoProcessSection />
-                <RegistrationForm />
-                <GallerySection />
-                <FooterSection />
-            </ScaleWrapper>
+            <HeroSection />
+            <FeatureSection />
+            <RulesSection />
+            <LimitedDisplaySection />
+            <VIPApplySection />
+            <YourCarSection />
+            <PhotoProcessSection />
+            <RegistrationForm />
+            <GallerySection />
+            <FooterSection />
         </>
     );
 }
