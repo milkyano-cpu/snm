@@ -282,6 +282,8 @@ html {
   100% {
     opacity: 0;
   }
+}
+
 .bg-entire {
   background-image: url("/bg-entire.png");
   background-size: cover;
