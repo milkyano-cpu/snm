@@ -1,5 +1,6 @@
 import { Outfit, DM_Sans } from "next/font/google";
 import "./globals.css";
+import Preloader from "@/components/Preloader";
 
 const outfit = Outfit({
   variable: "--font-outfit-var",
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" style={{ background: "#010101" }}>
       <body className={`${outfit.variable} ${dmSans.variable} antialiased`}>
+        <Preloader />
         {children}
       </body>
     </html>

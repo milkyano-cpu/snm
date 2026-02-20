@@ -8,7 +8,7 @@ export default function HeroSection() {
         <section className="flex min-h-screen items-center pt-12 bg-lorbek">
             {/* <Bglorbrek topClass="top-0" zIndexClass="z-10" opacityClass={'opacity-90'}/> */}
             {/* <Cloud topClass="-top-30" leftClass=" left-20" /> */}
-            <div className="container flex items-center relative">
+            <div className="container flex items-center justify-between relative">
                 <TextPart />
                 <ImagePart />
             </div>

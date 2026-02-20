@@ -5,7 +5,7 @@ import Paperclip from "@/icons/PaperclipIcon";
 
 export default function InformationPart() {
   return (
-    <div className="flex flex-col items-start gap-8 font-outfit">
+    <div className="flex flex-col items-start gap-8 font-outfit animate-fade-in-up animation-delay-400">
       <div className="flex flex-col gap-1">
         <div className="flex items-center gap-2">
           <Calendar className="h-8 w-8 shrink-0 box-content pl-1.25" />
