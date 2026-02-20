@@ -8,12 +8,12 @@ export default function InformationPart() {
     <div className="flex flex-col items-start gap-8 font-outfit">
       <div className="flex flex-col gap-1">
         <div className="flex items-center gap-2">
-          <Calendar className="h-8 w-8 shrink-0" />
+          <Calendar className="h-8 w-8 shrink-0 box-content pl-1.25" />
           <p className="font-bold text-lg tracking-tight">
             28th Febuary, 6PM &ndash; Late
           </p>
         </div>
-        <div className="flex items-start gap-2">
+        <div className="flex items-start gap-3">
           <LocationIcon className="h-8 w-8 shrink-0" />
           <p className="text-lg tracking-tight">
             <span className="font-bold">Lorbek Luxury Cars,</span> 1/30 Prohasky St,

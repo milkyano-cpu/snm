@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function LogoPart() {
   return (
     <div className="relative flex flex-col items-start">
-      <Cloud topClass="-top-30" leftClass="-left-50" />
+      {/* <Cloud topClass="-top-30" leftClass="-left-50" mixBlendClass="mix-blend-screen" zIndexClass="z-30" /> */}
       <div>
         <Image
           src="https://s3.milkyano.com/snm-marketing-email/logo/snm-logo-black-bg-1.png"

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function ImagePart() {
   return (
-    <div className="w-[75%] absolute -top-20 -right-50 z-10">
+    <div className="w-[75%] absolute -top-20 -right-20 z-10">
       <Image
         src="/supercar-and-motorcycle.png"
         alt="Supercar and Motorcycle"

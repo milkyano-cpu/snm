@@ -14,7 +14,7 @@ export default function Home() {
     return (
         <>
             <HeroSection />
-            <FeatureSection />
+            {/* <FeatureSection />
             <RulesSection />
             <LimitedDisplaySection />
             <VIPApplySection />
@@ -24,7 +24,7 @@ export default function Home() {
             <GallerySection />
             <ScaleWrapper>
                 <FooterSection />
-            </ScaleWrapper>
+            </ScaleWrapper> */}
         </>
     );
 }
