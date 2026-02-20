@@ -4,6 +4,7 @@ import { YourCarSection } from "@/components/YourCarSection";
 import FeatureSection from "../components/Feature/FeatureSection";
 import HeroSection from "../components/Hero/HeroSection";
 import RulesSection from "../components/Rules/RulesSection";
+import RegistrationForm from "@/components/RegistrationForm";
 
 export default function Home() {
     return (
@@ -15,9 +16,9 @@ export default function Home() {
                 <LimitedDisplaySection />
                 <VIPApplySection />
                 <YourCarSection />
+                <RegistrationForm />
             </section>
             {/*
-            <RegistrationForm />
             <GallerySection />
             <ScaleWrapper>
                 <FooterSection />

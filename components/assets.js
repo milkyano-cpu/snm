@@ -39,6 +39,7 @@ export const ASSETS = {
   ellipse16:     "/assets/ellipse16.svg",
   frame63:       "/assets/frame63.svg",
   ellipse1669:   "/assets/ellipse1669.svg",
+  hooligon:      "/assets/hooligon.png",
 
   // ── Features bar ─────────────────────────────────────────────────────────
   carsIcon:          "/assets/carsIcon.svg",
