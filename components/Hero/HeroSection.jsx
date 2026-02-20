@@ -1,7 +1,5 @@
-import Bglorbrek from "@/textures/Bglorbrek";
 import ImagePart from "./Parts/ImagePart";
 import TextPart from "./Parts/TextPart";
-import Cloud from "@/textures/Cloud";
 
 export default function HeroSection() {
     return (

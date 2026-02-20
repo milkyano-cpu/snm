@@ -1,10 +1,8 @@
 import Image from "next/image";
-import { GlassCard } from "../GlassCard";
-import FeaturesPart from "./Parts/FeaturesPart";
 
 export default function FeatureSection() {
     return (
-        <div className="container">
+        <div className="py-100 container">
             <Image
                 src="/feature-section.png"
                 alt="feature section"
@@ -14,11 +12,4 @@ export default function FeatureSection() {
             />
         </div>
     );
-    // return (
-    //   <section className="container">
-    //     <GlassCard className="flex justify-center items-center gap-8 py-8 px-8">
-    //       <FeaturesPart />
-    //     </GlassCard>
-    //   </section>
-    // );
 }
