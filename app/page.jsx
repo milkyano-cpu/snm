@@ -1,10 +1,11 @@
 import LimitedDisplaySection from "@/components/LimitedDisplay/LimitedDisplaySection";
 import { VIPApplySection } from "@/components/VIPApplySection";
 import { YourCarSection } from "@/components/YourCarSection";
-import FeatureSection from "../components/Feature/FeatureSection";
-import HeroSection from "../components/Hero/HeroSection";
-import RulesSection from "../components/Rules/RulesSection";
+import FeatureSection from "@/components/Feature/FeatureSection";
+import HeroSection from "@/components/Hero/HeroSection";
+import RulesSection from "@/components/Rules/RulesSection";
 import RegistrationForm from "@/components/RegistrationForm/RegistrationForm";
+import { GallerySection } from "@/components/GallerySection";
 
 export default function Home() {
     return (
@@ -17,6 +18,7 @@ export default function Home() {
                 <VIPApplySection />
                 <YourCarSection />
                 <RegistrationForm />
+                <GallerySection />
             </section>
             {/*
             <GallerySection />

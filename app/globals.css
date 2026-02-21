@@ -17,12 +17,12 @@ html {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 60vw;
   margin: 0 auto;
 }
 
 .form-container {
-  max-width: 950px;
+  max-width: 40vw;
   margin: 0 auto;
 }
 
