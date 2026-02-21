@@ -20,11 +20,6 @@ export default function Home() {
                 <RegistrationForm />
                 <GallerySection />
             </section>
-            {/*
-            <GallerySection />
-            <ScaleWrapper>
-                <FooterSection />
-            </ScaleWrapper> */}
         </>
     );
 }
