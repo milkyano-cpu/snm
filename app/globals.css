@@ -289,6 +289,63 @@ html {
   }
 }
 
+/* ── Fading border ── */
+.fading-border {
+  position: relative;
+  background-clip: padding-box;
+  border: 3px solid transparent;
+}
+
+.fading-border::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 100px;
+  border: 3px solid rgba(255, 255, 255, 0.49);
+  z-index: 2;
+  pointer-events: none;
+  -webkit-mask-image: conic-gradient(
+    from 0deg,
+    rgba(255, 255, 255, 1) 0deg,
+    rgba(255, 255, 255, 0.9) 25deg,
+    rgba(255, 255, 255, 0.5) 55deg,
+    rgba(255, 255, 255, 0.15) 75deg,
+    rgba(255, 255, 255, 0) 90deg,
+    rgba(255, 255, 255, 0.15) 105deg,
+    rgba(255, 255, 255, 0.5) 125deg,
+    rgba(255, 255, 255, 0.9) 155deg,
+    rgba(255, 255, 255, 1) 180deg,
+    rgba(255, 255, 255, 0.9) 205deg,
+    rgba(255, 255, 255, 0.5) 235deg,
+    rgba(255, 255, 255, 0.15) 255deg,
+    rgba(255, 255, 255, 0) 270deg,
+    rgba(255, 255, 255, 0.15) 285deg,
+    rgba(255, 255, 255, 0.5) 305deg,
+    rgba(255, 255, 255, 0.9) 335deg,
+    rgba(255, 255, 255, 1) 360deg
+  );
+  mask-image: conic-gradient(
+    from 0deg,
+    rgba(255, 255, 255, 1) 0deg,
+    rgba(255, 255, 255, 0.9) 25deg,
+    rgba(255, 255, 255, 0.5) 55deg,
+    rgba(255, 255, 255, 0.15) 75deg,
+    rgba(255, 255, 255, 0) 90deg,
+    rgba(255, 255, 255, 0.15) 105deg,
+    rgba(255, 255, 255, 0.5) 125deg,
+    rgba(255, 255, 255, 0.9) 155deg,
+    rgba(255, 255, 255, 1) 180deg,
+    rgba(255, 255, 255, 0.9) 205deg,
+    rgba(255, 255, 255, 0.5) 235deg,
+    rgba(255, 255, 255, 0.15) 255deg,
+    rgba(255, 255, 255, 0) 270deg,
+    rgba(255, 255, 255, 0.15) 285deg,
+    rgba(255, 255, 255, 0.5) 305deg,
+    rgba(255, 255, 255, 0.9) 335deg,
+    rgba(255, 255, 255, 1) 360deg
+  );
+}
+
 .bg-entire {
   background-image: url("/bg-entire.png");
   background-size: cover;
