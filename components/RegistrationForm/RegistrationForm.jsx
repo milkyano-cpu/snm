@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { ASSETS } from "./assets";
+import { ASSETS } from "../assets";
+import FormPart from "./Parts/FormPart";
 
 const FIELD_CONFIG = [
     { key: "firstName", label: "First Name", type: "text", placeholder: "Enter your first name" },
@@ -22,7 +23,7 @@ const FIELD_CONFIG = [
 export default function RegistrationForm() {
     return (
         <section className="container">
-            <div className="relative max-w-150 mx-auto">
+            <div className="relative max-w-357 mx-auto">
                 <Image
                     src="/border-gradient-for-form.png"
                     alt="Border Gradient For Form"
@@ -30,36 +31,18 @@ export default function RegistrationForm() {
                     height={1733}
                     className="w-full h-auto"
                 />
-                <form className="absolute inset-0 max-w-150">
-                    <div className="h-19.5 flex justify-center">
-                        <div className="h-full">
-                            <Image
-                                src={ASSETS.snmLogo}
-                                alt="SNM"
-                                width={1429}
-                                height={1733}
-                                className="w-full h-full object-contain"
-                            />
-                        </div>
-                        <div className="h-full">
-                            <Image
-                                src={ASSETS.amuse}
-                                alt="SNM"
-                                width={1429}
-                                height={1733}
-                                className="w-full h-full object-contain"
-                            />
-                        </div>
-                        <div className="h-full">
-                            <Image
-                                src={ASSETS.hooligon}
-                                alt="SNM"
-                                width={1429}
-                                height={1733}
-                                className="w-full h-full object-contain"
-                            />
-                        </div>
+                <form className="absolute inset-0 form-container py-12 flex flex-col gap-12">
+                    <div className="h-19.5">
+                        <Image
+                            src="/registration-form/logo.png"
+                            alt="Registration Form Logo"
+                            width={1900}
+                            height={156}
+                            className="h-full"
+                        />
                     </div>
+                    <h3 className="text-center font-bold text-5xl">Registration Form</h3>
+                    <FormPart />
                 </form>
             </div>
         </section>

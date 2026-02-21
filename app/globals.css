@@ -21,6 +21,11 @@ html {
   margin: 0 auto;
 }
 
+.form-container {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
 .bg-lorbek {
   background-image: url("/hero/LORBEK-BACKGROUND.png");
   background-size: cover;
