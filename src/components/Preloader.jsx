@@ -17,7 +17,9 @@ export default function Preloader() {
     };
   }, []);
 
-  if (phase === "done") return null;
+  if (phase === "done") {
+    return null;
+  }
 
   return (
     <div className="preloader-overlay" data-phase={phase}>

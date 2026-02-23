@@ -1,5 +1,6 @@
-import CrownIcon from "@/src/icons/CrownIcon";
 import Button from "./Button";
+
+import CrownIcon from "@/src/icons/CrownIcon";
 
 export function VIPApplySection() {
   return (

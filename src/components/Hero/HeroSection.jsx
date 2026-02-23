@@ -1,7 +1,6 @@
 import ImagePart from "./Parts/ImagePart";
 import InformationPart from "./Parts/InformationPart";
 import LogoPart from "./Parts/LogoPart";
-import TextPart from "./Parts/TextPart";
 
 export default function HeroSection() {
   return (

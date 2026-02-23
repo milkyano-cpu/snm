@@ -1,7 +1,7 @@
-import TextPart from "./Parts/TextPart";
 import FooterCardPart from "./Parts/FooterCardPart";
-import SocialIconPart from "./Parts/SocialIconPart";
 import GalleryPart from "./Parts/GalleryPart";
+import SocialIconPart from "./Parts/SocialIconPart";
+import TextPart from "./Parts/TextPart";
 
 export function GallerySection() {
   return (

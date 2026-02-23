@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
+import Image from "next/image";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { PhoneInput } from "react-international-phone";
+
 import "react-international-phone/style.css";
-import Button from "../Button";
 import { ASSETS } from "../assets";
-import Image from "next/image";
+import Button from "../Button";
 
 const API_BASE = "https://api.alphaomegamensgrooming.com/api/form-submissions";
 const PABBLY_WEBHOOK_URL =
@@ -149,15 +150,23 @@ function Toast({ toast, onDismiss }) {
   const elRef = useRef(null);
 
   useEffect(() => {
-    if (!toast) return;
+    if (!toast) {
+      return undefined;
+    }
     const timer = setTimeout(() => {
-      if (elRef.current) elRef.current.dataset.dismissing = "true";
+      if (elRef.current) {
+        elRef.current.dataset.dismissing = "true";
+      }
       setTimeout(onDismiss, 300);
     }, 5000);
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+    };
   }, [toast, onDismiss]);
 
-  if (typeof window === "undefined" || !toast) return null;
+  if (typeof window === "undefined" || !toast) {
+    return null;
+  }
 
   return createPortal(
     <div
@@ -201,7 +210,9 @@ export function RegistrationFormV3() {
   const handleChange = useCallback((key, value) => {
     setFormData((prev) => ({ ...prev, [key]: value }));
     setErrors((prev) => {
-      if (!prev[key]) return prev;
+      if (!prev[key]) {
+        return prev;
+      }
       const next = { ...prev };
       delete next[key];
       return next;
@@ -243,16 +254,22 @@ export function RegistrationFormV3() {
 
   const scrollToFirstError = useCallback((errs) => {
     const firstKey = FIELD_CONFIG.find((f) => errs[f.key])?.key;
-    if (!firstKey) return;
+    if (!firstKey) {
+      return;
+    }
     const el = fieldRefs.current[firstKey];
-    if (!el) return;
+    if (!el) {
+      return;
+    }
     const rect = el.getBoundingClientRect();
     const scrollY = window.scrollY + rect.top - 120;
     window.scrollTo({ top: Math.max(0, scrollY), behavior: "smooth" });
   }, []);
 
   const handleSubmit = useCallback(async () => {
-    if (submitState === "submitting" || submitState === "success") return;
+    if (submitState === "submitting" || submitState === "success") {
+      return;
+    }
 
     const validationErrors = validate(formData);
     if (Object.keys(validationErrors).length > 0) {
@@ -293,7 +310,9 @@ export function RegistrationFormV3() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         }).then((res) => {
-          if (!res.ok) throw new Error(`Server responded with ${res.status}`);
+          if (!res.ok) {
+            throw new Error(`Server responded with ${res.status}`);
+          }
           return res.json();
         }),
         fetch(PABBLY_WEBHOOK_URL, {
