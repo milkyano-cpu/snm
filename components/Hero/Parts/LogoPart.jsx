@@ -4,19 +4,19 @@ export default function LogoPart() {
     return (
         <div className="relative flex flex-col items-center">
             <div className="animate-fade-in-up">
-                <div className="w-full">
+                <div className="max-h-42">
                     <Image
                         src="https://s3.milkyano.com/snm-marketing-email/logo/snm-logo-black-bg-1.png"
                         alt="SNM Logo"
                         width={1045}
                         height={339}
-                        className="w-full h-full object-contain"
+                        className="w-full h-full object-cover"
                         loading="eager"
                     />
                 </div>
             </div>
-            <div className="flex items-center justify-center animate-fade-in-up animation-delay-200">
-                <div className="w-full">
+            <div className="flex items-center justify-center animate-fade-in-up animation-delay-200 max-h-40">
+                <div className="w-full h-full">
                     <Image
                         src="https://s3.milkyano.com/snm-marketing-email/logo/hooligoon.png"
                         alt="Hooligoon Logo"
@@ -25,7 +25,7 @@ export default function LogoPart() {
                         className="w-full h-full object-contain"
                     />
                 </div>
-                <div className="w-full">
+                <div className="w-full h-full">
                     <Image
                         src="https://s3.milkyano.com/snm-marketing-email/logo/amuse.png"
                         alt="Amuse Logo"

@@ -243,7 +243,7 @@ export function RegistrationFormV2() {
     }, [formData, validate, submitState, scrollToFirstError]);
 
     return (
-        <div id="registration-form" className="fading-border container bg-black rounded-[100px] flex flex-col items-center px-[240px] py-[100px]">
+        <div id="registration-form" className="fading-border container rounded-[100px] flex flex-col items-center px-[240px] py-[100px]">
             {/* logo */}
             <div className="w-[130%] -mx-[15%] pb-12">
                     <Image
