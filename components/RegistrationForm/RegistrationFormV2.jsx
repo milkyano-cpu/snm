@@ -1,12 +1,15 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
+import { createPortal } from "react-dom";
+import { PhoneInput } from "react-international-phone";
+import "react-international-phone/style.css";
 import Button from "../Button";
 import { ASSETS } from "../assets";
+import Image from "next/image";
 
 const API_BASE = "https://api.alphaomegamensgrooming.com/api/form-submissions";
-const PABBLY_WEBHOOK_URL =
-    "https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZlMDYzMDA0MzM1MjZlNTUzZDUxMzMi_pc";
+const PABBLY_WEBHOOK_URL = "https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZlMDYzMDA0MzM1MjZlNTUzZDUxMzMi_pc";
 
 const SPREADSHEET_URL = process.env.NEXT_PUBLIC_SPREADSHEET_URL;
 const EMAIL_RECEIVER = process.env.NEXT_PUBLIC_EMAIL_RECEIVER;
@@ -15,7 +18,7 @@ const FIELD_CONFIG = [
     { key: "firstName", label: "First Name", type: "text", placeholder: "Enter your first name" },
     { key: "lastName", label: "Last Name", type: "text", placeholder: "Enter your last name" },
     { key: "email", label: "Email", type: "email", placeholder: "Enter your email" },
-    { key: "whatsapp", label: "( Country Code ) Whatsapp Number", type: "tel", placeholder: "+61 400 000 000" },
+    { key: "whatsapp", label: "Whatsapp Number", type: "phone", placeholder: "+61 400 000 000" },
     { key: "instagram", label: "Your Instagram Username/Link", type: "text", placeholder: "@yourusername" },
     { key: "age", label: "How old are you", type: "number", placeholder: "Enter your age" },
     {
@@ -31,8 +34,82 @@ const FIELD_CONFIG = [
 
 const INITIAL_FORM_DATA = Object.fromEntries(FIELD_CONFIG.map((f) => [f.key, ""]));
 
+const inputBaseClasses =
+    "bg-white h-[48px] rounded-[8px] w-full px-[16px] font-dm-sans text-[16px] outline-none transition-all duration-200 border border-transparent focus:ring-2 focus:ring-white/20 focus:shadow-[0_0_12px_rgba(255,255,255,0.08)]";
+
+const inputErrorClasses = "border-red-500 ring-2 ring-red-500/30";
+
 function CameraIcon({ className }) {
     return <img alt="" className={className} src={ASSETS.cameraIcon2} />;
+}
+
+function Spinner({ className }) {
+    return (
+        <svg className={`reg-spinner ${className}`} viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeDasharray="32 32" />
+        </svg>
+    );
+}
+
+function SuccessCheckmark() {
+    return (
+        <div className="reg-success-checkmark mb-8">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                <circle cx="40" cy="40" r="36" stroke="rgba(74, 222, 128, 0.5)" strokeWidth="3" fill="rgba(22, 163, 74, 0.15)" />
+                <path
+                    className="reg-checkmark-path"
+                    d="M24 42 L34 52 L56 30"
+                    stroke="#4ade80"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    fill="none"
+                />
+            </svg>
+        </div>
+    );
+}
+
+function Toast({ toast, onDismiss }) {
+    const elRef = useRef(null);
+
+    useEffect(() => {
+        if (!toast) return;
+        const timer = setTimeout(() => {
+            if (elRef.current) elRef.current.dataset.dismissing = "true";
+            setTimeout(onDismiss, 300);
+        }, 5000);
+        return () => clearTimeout(timer);
+    }, [toast, onDismiss]);
+
+    if (typeof window === "undefined" || !toast) return null;
+
+    return createPortal(
+        <div
+            ref={elRef}
+            className={`reg-toast ${toast.type === "success" ? "reg-toast-success" : "reg-toast-error"}`}
+            data-dismissing="false"
+        >
+            {toast.message}
+        </div>,
+        document.body
+    );
+}
+
+function ChevronDown() {
+    return (
+        <svg
+            className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+        >
+            <path
+                fillRule="evenodd"
+                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                clipRule="evenodd"
+            />
+        </svg>
+    );
 }
 
 export function RegistrationFormV2() {
@@ -40,7 +117,11 @@ export function RegistrationFormV2() {
     const [errors, setErrors] = useState({});
     const [submitState, setSubmitState] = useState("idle");
     const [submitError, setSubmitError] = useState("");
+    const [toast, setToast] = useState(null);
     const initCalledRef = useRef(false);
+    const fieldRefs = useRef({});
+
+    const dismissToast = useCallback(() => setToast(null), []);
 
     const handleChange = useCallback((key, value) => {
         setFormData((prev) => ({ ...prev, [key]: value }));
@@ -67,7 +148,7 @@ export function RegistrationFormV2() {
                 errs[key] = "Please enter a valid email address";
             }
 
-            if (type === "tel" && val.replace(/\D/g, "").length < 7) {
+            if ((type === "tel" || type === "phone") && val.replace(/\D/g, "").length < 7) {
                 errs[key] = "Phone number must have at least 7 digits";
             }
 
@@ -82,12 +163,23 @@ export function RegistrationFormV2() {
         return errs;
     }, []);
 
+    const scrollToFirstError = useCallback((errs) => {
+        const firstKey = FIELD_CONFIG.find((f) => errs[f.key])?.key;
+        if (!firstKey) return;
+        const el = fieldRefs.current[firstKey];
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const scrollY = window.scrollY + rect.top - 120;
+        window.scrollTo({ top: Math.max(0, scrollY), behavior: "smooth" });
+    }, []);
+
     const handleSubmit = useCallback(async () => {
         if (submitState === "submitting" || submitState === "success") return;
 
         const validationErrors = validate(formData);
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
+            scrollToFirstError(validationErrors);
             return;
         }
 
@@ -135,27 +227,32 @@ export function RegistrationFormV2() {
 
             if (apiResult.status === "fulfilled") {
                 setSubmitState("success");
+                setToast({ type: "success", message: "Registration submitted successfully!" });
             } else {
+                const msg = apiResult.reason?.message || "Something went wrong. Please try again.";
                 setSubmitState("error");
-                setSubmitError(apiResult.reason?.message || "Something went wrong. Please try again.");
+                setSubmitError(msg);
+                setToast({ type: "error", message: msg });
             }
         } catch (err) {
+            const msg = err.message || "Something went wrong. Please try again.";
             setSubmitState("error");
-            setSubmitError(err.message || "Something went wrong. Please try again.");
+            setSubmitError(msg);
+            setToast({ type: "error", message: msg });
         }
-    }, [formData, validate, submitState]);
+    }, [formData, validate, submitState, scrollToFirstError]);
 
     return (
-        <div className="fading-border -translate-x-1/2 absolute left-[calc(50%-0.5px)] top-[5728px] w-[1429px] bg-black rounded-[100px] flex flex-col items-center px-[240px] py-[100px]">
-            {/* SNM logo */}
-            <div className="relative h-[73px] w-[224px] mb-[64px]">
-                <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    <img
-                        alt="SNM"
-                        className="absolute h-[377.14%] left-[-20.66%] max-w-none top-[-140%] w-[137.61%]"
-                        src={ASSETS.snmLogo}
+        <div id="registration-form" className="fading-border container bg-black rounded-[100px] flex flex-col items-center px-[240px] py-[100px]">
+            {/* logo */}
+            <div className="w-[130%] -mx-[15%] pb-12">
+                    <Image
+                        src="/registration-form/logo.png"
+                        alt="Registration Form Logo"
+                        width={2000}
+                        height={2000}
+                        className="h-full w-full"
                     />
-                </div>
             </div>
 
             {/* Heading */}
@@ -165,7 +262,8 @@ export function RegistrationFormV2() {
 
             {/* Form area */}
             {submitState === "success" ? (
-                <div className="flex flex-col items-center justify-center w-full py-[120px]">
+                <div className="animate-fade-in-up flex flex-col items-center justify-center w-full py-[120px]">
+                    <SuccessCheckmark />
                     <p className="font-outfit font-bold text-[48px] text-white tracking-[-0.96px] text-center">
                         You&apos;re Registered!
                     </p>
@@ -176,34 +274,49 @@ export function RegistrationFormV2() {
             ) : (
                 <div className="flex flex-col gap-[28px] w-full">
                     {FIELD_CONFIG.map(({ key, label, type, placeholder, options }) => (
-                        <div key={key} className="flex flex-col gap-[10px] w-full">
+                        <div
+                            key={key}
+                            ref={(el) => { fieldRefs.current[key] = el; }}
+                            className="flex flex-col gap-[10px] w-full"
+                        >
                             <label className="font-outfit leading-normal text-[20px] text-white tracking-[-0.4px]">
                                 {label}
                             </label>
                             {type === "select" ? (
-                                <select
-                                    value={formData[key]}
-                                    onChange={(e) => handleChange(key, e.target.value)}
-                                    className={`bg-white h-[48px] rounded-[8px] w-full px-[16px] font-dm-sans text-[16px] outline-none appearance-none cursor-pointer ${
-                                        formData[key] ? "text-black" : "text-gray-400"
-                                    }`}
-                                >
-                                    <option value="" disabled>
-                                        {placeholder}
-                                    </option>
-                                    {options.map((opt) => (
-                                        <option key={opt} value={opt} className="text-black">
-                                            {opt}
+                                <div className="relative">
+                                    <select
+                                        value={formData[key]}
+                                        onChange={(e) => handleChange(key, e.target.value)}
+                                        className={`${inputBaseClasses} appearance-none cursor-pointer pr-10 ${
+                                            formData[key] ? "text-black" : "text-gray-400"
+                                        } ${errors[key] ? inputErrorClasses : ""}`}
+                                    >
+                                        <option value="" disabled>
+                                            {placeholder}
                                         </option>
-                                    ))}
-                                </select>
+                                        {options.map((opt) => (
+                                            <option key={opt} value={opt} className="text-black">
+                                                {opt}
+                                            </option>
+                                        ))}
+                                    </select>
+                                    <ChevronDown />
+                                </div>
+                            ) : type === "phone" ? (
+                                <PhoneInput
+                                    defaultCountry="au"
+                                    value={formData[key]}
+                                    onChange={(phone) => handleChange(key, phone)}
+                                    className={`reg-phone-input ${errors[key] ? "reg-phone-input-error" : ""}`}
+                                />
                             ) : (
                                 <input
                                     type={type}
                                     value={formData[key]}
                                     onChange={(e) => handleChange(key, e.target.value)}
                                     placeholder={placeholder}
-                                    className="bg-white h-[48px] rounded-[8px] w-full px-[16px] font-dm-sans text-[16px] text-black outline-none"
+                                    {...(type === "number" ? { min: 0 } : {})}
+                                    className={`${inputBaseClasses} text-black ${errors[key] ? inputErrorClasses : ""}`}
                                 />
                             )}
                             {errors[key] && <p className="font-dm-sans text-[14px] text-red-500">{errors[key]}</p>}
@@ -219,7 +332,11 @@ export function RegistrationFormV2() {
                             }
                         >
                             <Button
-                                icon={<CameraIcon className="h-10 w-10 p-1.5" />}
+                                icon={
+                                    submitState === "submitting"
+                                        ? <Spinner className="h-10 w-10 p-1.5 text-white" />
+                                        : <CameraIcon className="h-10 w-10 p-1.5" />
+                                }
                                 text={submitState === "submitting" ? "SUBMITTING..." : "GET MY EVENT PHOTOS"}
                             />
                         </div>
@@ -229,6 +346,8 @@ export function RegistrationFormV2() {
                     </div>
                 </div>
             )}
+
+            <Toast key={toast ? toast.message : ""} toast={toast} onDismiss={dismissToast} />
         </div>
     );
 }

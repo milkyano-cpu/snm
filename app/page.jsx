@@ -6,6 +6,7 @@ import HeroSection from "@/components/Hero/HeroSection";
 import RulesSection from "@/components/Rules/RulesSection";
 import RegistrationForm from "@/components/RegistrationForm/RegistrationForm";
 import { GallerySection } from "@/components/GallerySection";
+import { RegistrationFormV2 } from "@/components/RegistrationForm/RegistrationFormV2";
 
 export default function Home() {
     return (
@@ -17,7 +18,7 @@ export default function Home() {
                 <LimitedDisplaySection />
                 <VIPApplySection />
                 <YourCarSection />
-                <RegistrationForm />
+                <RegistrationFormV2 />
                 <GallerySection />
             </section>
         </>

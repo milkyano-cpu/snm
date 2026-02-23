@@ -1,21 +1,24 @@
 "use client";
-import { useEffect, useState, useCallback } from "react";
+import { useSyncExternalStore } from "react";
 
 const CANVAS_W = 1920;
 const CANVAS_H = 10846;
 
+function subscribe(callback) {
+  window.addEventListener("resize", callback);
+  return () => window.removeEventListener("resize", callback);
+}
+
+function getScale() {
+  return document.documentElement.clientWidth / CANVAS_W;
+}
+
+function getServerScale() {
+  return 1;
+}
+
 export function ScaleWrapper({ children }) {
-  const [scale, setScale] = useState(1);
-
-  const update = useCallback(() => {
-    setScale(document.documentElement.clientWidth / CANVAS_W);
-  }, []);
-
-  useEffect(() => {
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, [update]);
+  const scale = useSyncExternalStore(subscribe, getScale, getServerScale);
 
   return (
     <div style={{ overflow: "hidden", height: `${CANVAS_H * scale}px` }}>

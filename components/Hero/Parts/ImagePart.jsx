@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function ImagePart() {
   return (
-    <div className="w-[55vw] absolute top-0 left-0 z-10 animate-fade-in-right">
+    <div className="w-[55vw] absolute -top-20 left-0 z-10 animate-fade-in-right">
       <Image
-        src="/supercar-and-motorcycle.png"
+        src="/supercar-bike-hero.png"
         alt="Supercar and Motorcycle"
         width={2004}
         height={2004}

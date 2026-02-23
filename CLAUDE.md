@@ -11,42 +11,59 @@ npm run start    # Start production server
 npm run lint     # Run ESLint
 ```
 
+No test framework is configured.
+
 ## Architecture
 
 This is a **Next.js 16 / React 19** single-page landing site for "Saturday Night Meet" (SNM Melbourne), a car meet event. It uses the **App Router** with JavaScript (not TypeScript).
 
-### Fixed-Canvas Scaling Model
-
-The site is built on a **1920×10846px fixed canvas** that scales to fit any viewport width. `ScaleWrapper` (the only `"use client"` component) applies a CSS `transform: scale()` based on `clientWidth / 1920`. All child sections use **absolute positioning with pixel values** derived from a Figma design — there is no responsive/flex layout within the canvas.
-
-When adding or modifying sections:
-- Use absolute positioning with explicit `top`, `left`, `width`, `height` in pixels
-- Coordinates correspond to the 1920px-wide Figma canvas
-- If total page height changes, update `CANVAS_H` in `ScaleWrapper.js`
-
 ### Page Structure
 
-`app/page.js` composes the full page as a vertical stack of section components inside `ScaleWrapper`:
+`app/page.jsx` composes the full page as a vertical stack of section components:
 
-HeroSection → FeaturesBar → AtmosphereSection → CommunityRulesSection → VIPCriteriaSection → VIPApplySection → YourCarSection → PhotoProcessSection → RegistrationForm → GallerySection → FooterSection
+```
+HeroSection → FeatureSection → RulesSection → LimitedDisplaySection →
+VIPApplySection → YourCarSection → RegistrationFormV2 → GallerySection
+```
 
-All section components are in `app/components/` and are server components (no `"use client"` except `ScaleWrapper`).
+The HeroSection sits outside the main background wrapper. All remaining sections are inside a `<section className="bg-entire">` container.
+
+A `Preloader` component (client-side animated logo reveal) wraps the page in `layout.jsx`.
+
+### Component Conventions
+
+- Almost all components are **server components** (default). Only `Preloader.jsx`, `RegistrationFormV2.jsx`, and `ScaleWrapper.js` use `"use client"`.
+- Larger sections are split into subdirectories with a `Parts/` folder (e.g., `Hero/HeroSection.jsx` + `Hero/Parts/TextPart.jsx`).
+- Layout uses Tailwind utility classes with `container` (max-width 60vw, centered) or `form-container` (max-width 40vw, centered) — both defined in `globals.css`.
+- CTA buttons use the shared `Button.jsx` component, which renders as `<a>` when `href` is provided, otherwise `<button>`.
 
 ### Asset Management
 
-All static images/icons live in `public/assets/`. The central registry `app/components/assets.js` exports an `ASSETS` object mapping semantic names to paths. Components import from `ASSETS` rather than using raw paths.
+All static images/icons live in `public/assets/`. The central registry `components/assets.js` exports an `ASSETS` object mapping semantic names to paths. Components import from `ASSETS` rather than using raw paths.
+
+SVG icons are React components in the `icons/` directory using inline SVG with `currentColor`.
 
 ### Fonts
 
-Two Google Fonts loaded via `next/font` in `layout.js`:
-- **Outfit** (`--font-outfit`) — headings and UI text
-- **DM Sans** (`--font-dm-sans`) — body text
+Two Google Fonts loaded via `next/font` in `layout.jsx`:
+- **Outfit** (`--font-outfit-var` → `font-outfit`) — headings and UI text
+- **DM Sans** (`--font-dm-sans-var` → `font-dm-sans`) — body text
 
-Exposed as Tailwind classes `font-outfit` and `font-dm-sans` via `@theme` variables in `globals.css`.
+Exposed as Tailwind classes via `@theme` variables in `globals.css`.
+
+### Styling
+
+- **Tailwind CSS v4** via `@tailwindcss/postcss` — no `tailwind.config.js`; theme customization uses CSS `@theme` variables in `globals.css`.
+- Custom CSS classes in `globals.css`: `.container`, `.form-container`, `.bg-lorbek`, `.bg-entire`, `.fading-border`, animation utilities (`.animate-fade-in-up`, `.animate-fade-in-right`, `.animate-float`), and preloader styles.
 
 ## Key Configuration
 
-- **next.config.mjs** — React Compiler enabled (`reactCompiler: true`)
-- **Tailwind CSS v4** via `@tailwindcss/postcss` — no `tailwind.config.js`; theme customization is done with CSS `@theme` variables in `globals.css`
-- **ESLint** — `eslint-config-next` (core web vitals rules)
-- **Path alias:** `@/*` resolves to the project root (configured in `jsconfig.json`)
+- **React Compiler** enabled in `next.config.mjs` (`reactCompiler: true`)
+- **Remote images** allowed from `https://s3.milkyano.com/**`
+- **Path alias:** `@/*` resolves to the project root (`jsconfig.json`)
+- **ESLint:** `eslint-config-next` with core web vitals rules
+
+## Environment Variables
+
+- `NEXT_PUBLIC_SPREADSHEET_URL` — Google Sheets URL for form submissions
+- `NEXT_PUBLIC_EMAIL_RECEIVER` — Email address for form notifications

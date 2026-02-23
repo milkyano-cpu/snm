@@ -25,6 +25,7 @@ export default function InformationPart() {
       <Button
         icon={<Paperclip className="h-10 w-10 text-white" />}
         text={"REGISTER / JOIN MEET"}
+        href="#registration-form"
       />
     </div>
   );

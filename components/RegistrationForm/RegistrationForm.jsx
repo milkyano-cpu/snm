@@ -22,7 +22,7 @@ const FIELD_CONFIG = [
 
 export default function RegistrationForm() {
     return (
-        <section className="container">
+        <section id="registration-form" className="container">
             <div className="relative max-w-357 mx-auto">
                 <Image
                     src="/border-gradient-for-form.png"

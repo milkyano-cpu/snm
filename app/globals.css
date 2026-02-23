@@ -14,6 +14,7 @@ body {
 
 html {
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .container {
@@ -349,4 +350,147 @@ html {
 .bg-entire {
   background-image: url("/bg-entire.png");
   background-size: cover;
+}
+
+/* ── Registration form: Spinner ── */
+@keyframes regSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.reg-spinner {
+  animation: regSpin 0.8s linear infinite;
+}
+
+/* ── Registration form: Success checkmark ── */
+@keyframes regCheckmarkScale {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes regCheckmarkDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.reg-success-checkmark {
+  animation: regCheckmarkScale 0.5s ease-out both;
+}
+
+.reg-checkmark-path {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: regCheckmarkDraw 0.4s ease-out 0.35s forwards;
+}
+
+/* ── Registration form: Toast ── */
+@keyframes regToastIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes regToastOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+.reg-toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-family: var(--font-dm-sans-var);
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: regToastIn 0.35s ease-out both;
+  pointer-events: auto;
+}
+
+.reg-toast[data-dismissing="true"] {
+  animation: regToastOut 0.3s ease-in forwards;
+}
+
+.reg-toast-success {
+  background: rgba(22, 163, 74, 0.85);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+.reg-toast-error {
+  background: rgba(220, 38, 38, 0.85);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+/* ── Registration form: Phone input (react-international-phone) ── */
+.reg-phone-input.react-international-phone-input-container {
+  width: 100%;
+  background: white !important;
+  height: 48px !important;
+  border-radius: 8px !important;
+  border: 1px solid transparent !important;
+  font-family: var(--font-dm-sans-var);
+  font-size: 16px;
+  transition: all 0.2s;
+  overflow: hidden;
+}
+
+.reg-phone-input.react-international-phone-input-container:focus-within {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2), 0 0 12px rgba(255, 255, 255, 0.08) !important;
+}
+
+.reg-phone-input .react-international-phone-country-selector-button {
+  background: transparent !important;
+  border: none !important;
+  border-right: 1px solid #e5e7eb !important;
+  height: 100% !important;
+  padding: 0 12px !important;
+  margin: 0 !important;
+}
+
+.reg-phone-input .react-international-phone-input {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  height: 100% !important;
+  width: 100%;
+  padding: 0 16px !important;
+  margin: 0 !important;
+  font-family: var(--font-dm-sans-var);
+  font-size: 16px;
+  color: black;
+  outline: none;
+}
+
+.reg-phone-input-error.react-international-phone-input-container {
+  border-color: rgb(239, 68, 68) !important;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3) !important;
 }

@@ -7,7 +7,14 @@
       "Bash(npm run lint)",
       "Bash(sort:*)",
       "Bash(xxd:*)",
-      "Bash(bash \"C:/Users/Rani/milkyano/snm/download_assets.sh\")"
+      "Bash(bash \"C:/Users/Rani/milkyano/snm/download_assets.sh\")",
+      "Bash(ls:*)",
+      "Bash(git -C /c/Users/Rani/milkyano/snm log --oneline -10)",
+      "Bash(wc:*)",
+      "WebSearch",
+      "WebFetch(domain:react-international-phone.vercel.app)",
+      "WebFetch(domain:bundlephobia.com)",
+      "Bash(npm install:*)"
     ]
   }
 }

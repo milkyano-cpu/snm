@@ -17,7 +17,7 @@ export function VIPApplySection() {
                 </p>
             </div>
             <div className="flex justify-center">
-                <Button icon={<CrownIcon className="text-white h-10 w-10" />} text="APPLY FOR VIP DISPLAY" />
+                <Button icon={<CrownIcon className="text-white h-10 w-10" />} text="APPLY FOR VIP DISPLAY" href="#registration-form" />
             </div>
         </section>
     );
