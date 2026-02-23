@@ -19,10 +19,7 @@ export default function Preloader() {
   if (phase === "done") return null;
 
   return (
-    <div
-      className="preloader-overlay"
-      data-phase={phase}
-    >
+    <div className="preloader-overlay" data-phase={phase}>
       {/* Ambient red glow behind logo */}
       <div className="preloader-glow" />
 

@@ -1,3 +1,7 @@
 export default function IconWrapper({ className, children }) {
-    return <div className={`flex items-center justify-center ${className}`}>{children}</div>;
+  return (
+    <div className={`flex items-center justify-center ${className}`}>
+      {children}
+    </div>
+  );
 }

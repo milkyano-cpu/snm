@@ -5,95 +5,132 @@ export function FeaturesBar() {
   return (
     <>
       {/* Background unsplash blur behind features — Mask group with calc() positioning */}
-      <div className="-translate-x-1/2 -translate-y-1/2 absolute contents left-[calc(50%-21.5px)] top-[calc(50%-3441.5px)]">
+      <div className="absolute top-[calc(50%-3441.5px)] left-[calc(50%-21.5px)] contents -translate-x-1/2 -translate-y-1/2">
         <div
-          className="-translate-x-1/2 -translate-y-1/2 absolute blur-[19.5px] h-[2383px] left-[calc(50%-21.5px)] opacity-50 top-[calc(50%-3441.5px)] w-[1963px]"
-          style={{ maskImage: `url('${ASSETS.unsplashMask}')`, maskSize: "1963px 2383px", maskRepeat: "no-repeat", maskPosition: "0px 0px" }}
+          className="absolute top-[calc(50%-3441.5px)] left-[calc(50%-21.5px)] h-[2383px] w-[1963px] -translate-x-1/2 -translate-y-1/2 opacity-50 blur-[19.5px]"
+          style={{
+            maskImage: `url('${ASSETS.unsplashMask}')`,
+            maskSize: "1963px 2383px",
+            maskRepeat: "no-repeat",
+            maskPosition: "0px 0px",
+          }}
         >
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <img alt="" className="absolute h-[123.58%] left-[-0.01%] max-w-none top-0 w-[100.03%]" src={ASSETS.unsplash} />
+          <div className="pointer-events-none absolute inset-0 overflow-hidden">
+            <img
+              alt=""
+              className="absolute top-0 left-[-0.01%] h-[123.58%] w-[100.03%] max-w-none"
+              src={ASSETS.unsplash}
+            />
           </div>
         </div>
       </div>
 
       {/* Glass card */}
-      <GlassCard className="-translate-x-1/2 absolute h-[373px] left-[calc(50%-0.5px)] top-[1192px] w-[1429px]" />
+      <GlassCard className="absolute top-[1192px] left-[calc(50%-0.5px)] h-[373px] w-[1429px] -translate-x-1/2" />
 
       {/* Features content — calc() positioning with translate */}
-      <div className="-translate-x-1/2 -translate-y-1/2 absolute content-stretch flex gap-[57px] items-start left-[calc(50%-1px)] top-[calc(50%-4045px)]">
+      <div className="absolute top-[calc(50%-4045px)] left-[calc(50%-1px)] flex -translate-x-1/2 -translate-y-1/2 content-stretch items-start gap-[57px]">
         {/* Cars */}
-        <div className="h-[150px] relative shrink-0 w-[218px]">
-          <p className="-translate-x-1/2 absolute font-outfit font-medium leading-normal left-1/2 not-italic text-[28px] text-center text-white top-[88px] tracking-[-0.56px] uppercase w-[224px] whitespace-pre-wrap">
+        <div className="relative h-[150px] w-[218px] shrink-0">
+          <p className="font-outfit absolute top-[88px] left-1/2 w-[224px] -translate-x-1/2 text-center text-[28px] leading-normal font-medium tracking-[-0.56px] whitespace-pre-wrap text-white uppercase not-italic">
             Premium Cars + Custom Builds
           </p>
-          <div className="absolute h-[62.929px] left-[68px] top-0 w-[87.906px]">
-            <img alt="" className="absolute block inset-0 max-w-none" src={ASSETS.carsIcon} />
+          <div className="absolute top-0 left-[68px] h-[62.929px] w-[87.906px]">
+            <img
+              alt=""
+              className="absolute inset-0 block max-w-none"
+              src={ASSETS.carsIcon}
+            />
           </div>
         </div>
 
         {/* Divider */}
-        <div className="flex h-[149px] items-center justify-center relative shrink-0 w-0">
+        <div className="relative flex h-[149px] w-0 shrink-0 items-center justify-center">
           <div className="flex-none rotate-90">
-            <div className="h-0 relative w-[149px]">
+            <div className="relative h-0 w-[149px]">
               <div className="absolute inset-[-1.5px_0_0_0]">
-                <img alt="" className="block max-w-none size-full" src={ASSETS.dividerLine} />
+                <img
+                  alt=""
+                  className="block size-full max-w-none"
+                  src={ASSETS.dividerLine}
+                />
               </div>
             </div>
           </div>
         </div>
 
         {/* Bikes */}
-        <div className="h-[150px] relative shrink-0 w-[218px]">
-          <p className="-translate-x-1/2 absolute font-outfit font-medium leading-normal left-1/2 not-italic text-[28px] text-center text-white top-[88px] tracking-[-0.56px] uppercase w-[212px] whitespace-pre-wrap">
+        <div className="relative h-[150px] w-[218px] shrink-0">
+          <p className="font-outfit absolute top-[88px] left-1/2 w-[212px] -translate-x-1/2 text-center text-[28px] leading-normal font-medium tracking-[-0.56px] whitespace-pre-wrap text-white uppercase not-italic">
             {`BIKES & CRUISER CULTURE`}
           </p>
-          <div className="-translate-x-1/2 absolute h-[59px] left-[calc(50%+0.11px)] top-0 w-[94.215px]">
-            <img alt="" className="absolute block inset-0 max-w-none" src={ASSETS.bikesIcon} />
+          <div className="absolute top-0 left-[calc(50%+0.11px)] h-[59px] w-[94.215px] -translate-x-1/2">
+            <img
+              alt=""
+              className="absolute inset-0 block max-w-none"
+              src={ASSETS.bikesIcon}
+            />
           </div>
         </div>
 
         {/* Divider */}
-        <div className="flex h-[149px] items-center justify-center relative shrink-0 w-0">
+        <div className="relative flex h-[149px] w-0 shrink-0 items-center justify-center">
           <div className="flex-none rotate-90">
-            <div className="h-0 relative w-[149px]">
+            <div className="relative h-0 w-[149px]">
               <div className="absolute inset-[-1.5px_0_0_0]">
-                <img alt="" className="block max-w-none size-full" src={ASSETS.dividerLine} />
+                <img
+                  alt=""
+                  className="block size-full max-w-none"
+                  src={ASSETS.dividerLine}
+                />
               </div>
             </div>
           </div>
         </div>
 
         {/* Photography */}
-        <div className="h-[150px] relative shrink-0 w-[218px]">
-          <div className="-translate-x-1/2 absolute font-outfit font-medium leading-normal left-[calc(50%+2px)] not-italic text-[28px] text-center text-white top-[88px] tracking-[-0.56px] uppercase whitespace-nowrap">
+        <div className="relative h-[150px] w-[218px] shrink-0">
+          <div className="font-outfit absolute top-[88px] left-[calc(50%+2px)] -translate-x-1/2 text-center text-[28px] leading-normal font-medium tracking-[-0.56px] whitespace-nowrap text-white uppercase not-italic">
             <p className="mb-0">PROFESSIONAL</p>
             <p>{`VIDEO & PHOTOGRAPHY`}</p>
           </div>
-          <div className="-translate-x-1/2 absolute left-1/2 size-[40px] top-[18px]">
-            <img alt="" className="absolute block inset-0 max-w-none" src={ASSETS.cameraSparkles} />
+          <div className="absolute top-[18px] left-1/2 size-[40px] -translate-x-1/2">
+            <img
+              alt=""
+              className="absolute inset-0 block max-w-none"
+              src={ASSETS.cameraSparkles}
+            />
           </div>
         </div>
 
         {/* Divider */}
-        <div className="flex h-[149px] items-center justify-center relative shrink-0 w-0">
+        <div className="relative flex h-[149px] w-0 shrink-0 items-center justify-center">
           <div className="flex-none rotate-90">
-            <div className="h-0 relative w-[149px]">
+            <div className="relative h-0 w-[149px]">
               <div className="absolute inset-[-1.5px_0_0_0]">
-                <img alt="" className="block max-w-none size-full" src={ASSETS.dividerLine} />
+                <img
+                  alt=""
+                  className="block size-full max-w-none"
+                  src={ASSETS.dividerLine}
+                />
               </div>
             </div>
           </div>
         </div>
 
         {/* Food trucks */}
-        <div className="h-[150px] relative shrink-0 w-[218px]">
-          <p className="-translate-x-1/2 absolute font-outfit font-medium leading-normal left-[calc(50%+2px)] not-italic text-[28px] text-center text-white top-[88px] tracking-[-0.56px] uppercase">
+        <div className="relative h-[150px] w-[218px] shrink-0">
+          <p className="font-outfit absolute top-[88px] left-[calc(50%+2px)] -translate-x-1/2 text-center text-[28px] leading-normal font-medium tracking-[-0.56px] text-white uppercase not-italic">
             FOOD TRUCKS
             <br aria-hidden="true" />
             {`& POP UP STORE`}
           </p>
-          <div className="-translate-x-1/2 absolute left-1/2 size-[40px] top-[17px]">
-            <img alt="" className="absolute block inset-0 max-w-none" src={ASSETS.foodTruckIcon} />
+          <div className="absolute top-[17px] left-1/2 size-[40px] -translate-x-1/2">
+            <img
+              alt=""
+              className="absolute inset-0 block max-w-none"
+              src={ASSETS.foodTruckIcon}
+            />
           </div>
         </div>
       </div>

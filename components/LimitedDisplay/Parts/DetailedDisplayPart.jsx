@@ -8,7 +8,7 @@ export default function DetailedDisplayPart() {
         alt="Limited Display"
         width={2858}
         height={1226}
-        className="w-full h-full object-contain"
+        className="h-full w-full object-contain"
       />
     </div>
   );

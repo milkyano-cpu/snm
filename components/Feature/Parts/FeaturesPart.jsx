@@ -27,11 +27,15 @@ const features = [
 
 function Divider() {
   return (
-    <div className="flex h-[149px] items-center justify-center relative shrink-0 w-0">
+    <div className="relative flex h-[149px] w-0 shrink-0 items-center justify-center">
       <div className="flex-none rotate-90">
-        <div className="h-0 relative w-[149px]">
+        <div className="relative h-0 w-[149px]">
           <div className="absolute inset-[-1.5px_0_0_0]">
-            <img alt="" className="block max-w-none size-full" src={ASSETS.dividerLine} />
+            <img
+              alt=""
+              className="block size-full max-w-none"
+              src={ASSETS.dividerLine}
+            />
           </div>
         </div>
       </div>

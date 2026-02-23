@@ -10,18 +10,18 @@ import { RegistrationFormV2 } from "@/components/RegistrationForm/RegistrationFo
 import { RegistrationFormV3 } from "@/components/RegistrationForm/RegistrationFormV3";
 
 export default function Home() {
-    return (
-        <>
-            <HeroSection />
-            <section className="bg-entire">
-                <FeatureSection />
-                <RulesSection />
-                <LimitedDisplaySection />
-                <VIPApplySection />
-                <YourCarSection />
-                <RegistrationFormV3 />
-                <GallerySection />
-            </section>
-        </>
-    );
+  return (
+    <>
+      <HeroSection />
+      <section className="bg-entire">
+        <FeatureSection />
+        <RulesSection />
+        <LimitedDisplaySection />
+        <VIPApplySection />
+        <YourCarSection />
+        <RegistrationFormV3 />
+        <GallerySection />
+      </section>
+    </>
+  );
 }

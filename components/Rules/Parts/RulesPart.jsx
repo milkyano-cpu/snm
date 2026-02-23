@@ -8,8 +8,8 @@ export default function RulesPart() {
         alt="Community Rules"
         width={3414}
         height={1382}
-        className="w-full h-full object-contain"
+        className="h-full w-full object-contain"
       />
     </div>
-  )
+  );
 }

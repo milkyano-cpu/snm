@@ -46,6 +46,7 @@ SVG icons are React components in the `icons/` directory using inline SVG with `
 ### Fonts
 
 Two Google Fonts loaded via `next/font` in `layout.jsx`:
+
 - **Outfit** (`--font-outfit-var` → `font-outfit`) — headings and UI text
 - **DM Sans** (`--font-dm-sans-var` → `font-dm-sans`) — body text
 

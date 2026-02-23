@@ -3,50 +3,90 @@ import { ASSETS } from "../assets";
 import FormPart from "./Parts/FormPart";
 
 const FIELD_CONFIG = [
-    { key: "firstName", label: "First Name", type: "text", placeholder: "Enter your first name" },
-    { key: "lastName", label: "Last Name", type: "text", placeholder: "Enter your last name" },
-    { key: "email", label: "Email", type: "email", placeholder: "Enter your email" },
-    { key: "whatsapp", label: "( Country Code ) Whatsapp Number", type: "tel", placeholder: "+61 400 000 000" },
-    { key: "instagram", label: "Your Instagram Username/Link", type: "text", placeholder: "@yourusername" },
-    { key: "age", label: "How old are you", type: "number", placeholder: "Enter your age" },
-    {
-        key: "vehicleType",
-        label: "Is your Vehicle a Car , Bike, or both ?",
-        type: "select",
-        placeholder: "Select an option",
-        options: ["Car", "Bike", "Both"],
-    },
-    { key: "brand", label: "What is the brand?", type: "text", placeholder: "e.g. Toyota, BMW, Ducati" },
-    { key: "model", label: "What is the model?", type: "text", placeholder: "e.g. Supra, M3, Panigale" },
+  {
+    key: "firstName",
+    label: "First Name",
+    type: "text",
+    placeholder: "Enter your first name",
+  },
+  {
+    key: "lastName",
+    label: "Last Name",
+    type: "text",
+    placeholder: "Enter your last name",
+  },
+  {
+    key: "email",
+    label: "Email",
+    type: "email",
+    placeholder: "Enter your email",
+  },
+  {
+    key: "whatsapp",
+    label: "( Country Code ) Whatsapp Number",
+    type: "tel",
+    placeholder: "+61 400 000 000",
+  },
+  {
+    key: "instagram",
+    label: "Your Instagram Username/Link",
+    type: "text",
+    placeholder: "@yourusername",
+  },
+  {
+    key: "age",
+    label: "How old are you",
+    type: "number",
+    placeholder: "Enter your age",
+  },
+  {
+    key: "vehicleType",
+    label: "Is your Vehicle a Car , Bike, or both ?",
+    type: "select",
+    placeholder: "Select an option",
+    options: ["Car", "Bike", "Both"],
+  },
+  {
+    key: "brand",
+    label: "What is the brand?",
+    type: "text",
+    placeholder: "e.g. Toyota, BMW, Ducati",
+  },
+  {
+    key: "model",
+    label: "What is the model?",
+    type: "text",
+    placeholder: "e.g. Supra, M3, Panigale",
+  },
 ];
 
 export default function RegistrationForm() {
-    return (
-        <section id="registration-form" className="container">
-            <div className="relative max-w-357 mx-auto">
-                <Image
-                    src="/border-gradient-for-form.png"
-                    alt="Border Gradient For Form"
-                    width={1429}
-                    height={1733}
-                    className="w-full h-auto"
-                />
-                <form className="absolute inset-0 form-container py-12 flex flex-col gap-12">
-                    <div className="h-19.5">
-                        <Image
-                            src="/registration-form/logo.png"
-                            alt="Registration Form Logo"
-                            width={1900}
-                            height={156}
-                            className="h-full"
-                        />
-                    </div>
-                    <h3 className="text-center font-bold text-5xl">Registration Form</h3>
-                    <FormPart />
-                </form>
-            </div>
-        </section>
-    );
+  return (
+    <section id="registration-form" className="container">
+      <div className="relative mx-auto max-w-357">
+        <Image
+          src="/border-gradient-for-form.png"
+          alt="Border Gradient For Form"
+          width={1429}
+          height={1733}
+          className="h-auto w-full"
+        />
+        <form className="form-container absolute inset-0 flex flex-col gap-12 py-12">
+          <div className="h-19.5">
+            <Image
+              src="/registration-form/logo.png"
+              alt="Registration Form Logo"
+              width={1900}
+              height={156}
+              className="h-full"
+            />
+          </div>
+          <h3 className="text-center text-5xl font-bold">Registration Form</h3>
+          <FormPart />
+        </form>
+      </div>
+    </section>
+  );
 }
 
 // "use client";

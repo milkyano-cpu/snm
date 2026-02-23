@@ -8,7 +8,7 @@ export default function ImagePart() {
         alt="Supercar and Motorcycle"
         width={2004}
         height={2004}
-        className="h-80 w-full object-cover object-bottom animate-float"
+        className="animate-float h-80 w-full object-cover object-bottom"
         loading="eager"
       />
     </div>
