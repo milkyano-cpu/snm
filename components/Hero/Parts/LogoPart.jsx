@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function LogoPart() {
     return (
-        <div className="relative flex flex-col items-center">
+        <div className="relative flex flex-col gap-3 items-center">
             <div className="animate-fade-in-up">
                 <div className="max-h-42">
                     <Image
