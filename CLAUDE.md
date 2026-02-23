@@ -5,66 +5,36 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-npm run dev      # Start development server (localhost:3000)
-npm run build    # Build for production
-npm run start    # Start production server
-npm run lint     # Run ESLint
+pnpm dev       # Start development server (http://localhost:3000)
+pnpm build     # Production build
+pnpm start     # Start production server
+pnpm lint      # ESLint
+pnpm format    # Prettier formatting for src/
 ```
-
-No test framework is configured.
 
 ## Architecture
 
-This is a **Next.js 16 / React 19** single-page landing site for "Saturday Night Meet" (SNM Melbourne), a car meet event. It uses the **App Router** with JavaScript (not TypeScript).
+This is a single-page event marketing site (Saturday Night Meet at Lorbek Luxury Cars). The main page at [src/app/page.jsx](src/app/page.jsx) renders all sections sequentially as a scrollable landing page.
 
-### Page Structure
+**Section order in page.jsx:**
+1. `HeroSection` — full-bleed with Lorbek background texture
+2. `FeatureSection`, `RulesSection`, `LimitedDisplaySection`, `VIPApplySection`, `YourCarSection` — wrapped in a shared dark background
+3. `RegistrationFormV3` — modal form with international phone input
+4. `GallerySection` + `FooterSection`
 
-`app/page.jsx` composes the full page as a vertical stack of section components:
+**Component structure — "Parts" pattern:**
+Each section lives in its own folder under [src/components/](src/components/) and decomposes into sub-components inside a `Parts/` subdirectory (e.g. `Hero/Parts/TextPart.jsx`, `Hero/Parts/LogoPart.jsx`). Follow this pattern when adding or modifying sections.
 
-```
-HeroSection → FeatureSection → RulesSection → LimitedDisplaySection →
-VIPApplySection → YourCarSection → RegistrationFormV2 → GallerySection
-```
+**Client vs Server components:**
+Components are Server Components by default. Add `"use client"` only for interactive components (e.g. `Preloader.jsx`, `RegistrationFormV3`).
 
-The HeroSection sits outside the main background wrapper. All remaining sections are inside a `<section className="bg-entire">` container.
+**Styling:**
+Tailwind CSS v4 with utility classes inline. Global animations (fadeInUp, fadeInRight, float, glow/sweep for preloader) are defined in [src/app/globals.css](src/app/globals.css). Custom font variables (`--font-outfit`, `--font-dm-sans`) are set in the root layout.
 
-A `Preloader` component (client-side animated logo reveal) wraps the page in `layout.jsx`.
+**Form submission:**
+`RegistrationFormV3` posts to an external API (`https://api.alphaomegamensgrooming.com/api/form-submissions`) and a Pabbly webhook. The `SPREADSHEET_URL` and `EMAIL_RECEIVER` env vars are used server-side.
 
-### Component Conventions
+**Image assets:**
+Local assets live in `public/` organized by section. Remote images from `s3.milkyano.com` are whitelisted in [next.config.mjs](next.config.mjs) for Next.js Image optimization.
 
-- Almost all components are **server components** (default). Only `Preloader.jsx`, `RegistrationFormV2.jsx`, and `ScaleWrapper.js` use `"use client"`.
-- Larger sections are split into subdirectories with a `Parts/` folder (e.g., `Hero/HeroSection.jsx` + `Hero/Parts/TextPart.jsx`).
-- Layout uses Tailwind utility classes with `container` (max-width 60vw, centered) or `form-container` (max-width 40vw, centered) — both defined in `globals.css`.
-- CTA buttons use the shared `Button.jsx` component, which renders as `<a>` when `href` is provided, otherwise `<button>`.
-
-### Asset Management
-
-All static images/icons live in `public/assets/`. The central registry `components/assets.js` exports an `ASSETS` object mapping semantic names to paths. Components import from `ASSETS` rather than using raw paths.
-
-SVG icons are React components in the `icons/` directory using inline SVG with `currentColor`.
-
-### Fonts
-
-Two Google Fonts loaded via `next/font` in `layout.jsx`:
-
-- **Outfit** (`--font-outfit-var` → `font-outfit`) — headings and UI text
-- **DM Sans** (`--font-dm-sans-var` → `font-dm-sans`) — body text
-
-Exposed as Tailwind classes via `@theme` variables in `globals.css`.
-
-### Styling
-
-- **Tailwind CSS v4** via `@tailwindcss/postcss` — no `tailwind.config.js`; theme customization uses CSS `@theme` variables in `globals.css`.
-- Custom CSS classes in `globals.css`: `.container`, `.form-container`, `.bg-lorbek`, `.bg-entire`, `.fading-border`, animation utilities (`.animate-fade-in-up`, `.animate-fade-in-right`, `.animate-float`), and preloader styles.
-
-## Key Configuration
-
-- **React Compiler** enabled in `next.config.mjs` (`reactCompiler: true`)
-- **Remote images** allowed from `https://s3.milkyano.com/**`
-- **Path alias:** `@/*` resolves to the project root (`jsconfig.json`)
-- **ESLint:** `eslint-config-next` with core web vitals rules
-
-## Environment Variables
-
-- `NEXT_PUBLIC_SPREADSHEET_URL` — Google Sheets URL for form submissions
-- `NEXT_PUBLIC_EMAIL_RECEIVER` — Email address for form notifications
+**Path alias:** `@/*` maps to the project root (e.g. `@/src/components/...`).
