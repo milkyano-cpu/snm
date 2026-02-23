@@ -15,21 +15,22 @@ const SPREADSHEET_URL = process.env.NEXT_PUBLIC_SPREADSHEET_URL;
 const EMAIL_RECEIVER = process.env.NEXT_PUBLIC_EMAIL_RECEIVER;
 
 const FIELD_CONFIG = [
-    { key: "firstName", label: "First Name", type: "text", placeholder: "Enter your first name" },
-    { key: "lastName", label: "Last Name", type: "text", placeholder: "Enter your last name" },
-    { key: "email", label: "Email", type: "email", placeholder: "Enter your email" },
-    { key: "whatsapp", label: "Whatsapp Number", type: "phone", placeholder: "+61 400 000 000" },
-    { key: "instagram", label: "Your Instagram Username/Link", type: "text", placeholder: "@yourusername" },
-    { key: "age", label: "How old are you", type: "number", placeholder: "Enter your age" },
+    { key: "firstName", label: "First Name", type: "text", placeholder: "Enter your first name", span: 1 },
+    { key: "lastName", label: "Last Name", type: "text", placeholder: "Enter your last name", span: 1 },
+    { key: "email", label: "Email", type: "email", placeholder: "Enter your email", span: 2 },
+    { key: "whatsapp", label: "Whatsapp Number", type: "phone", placeholder: "+61 400 000 000", span: 2 },
+    { key: "instagram", label: "Your Instagram Username/Link", type: "text", placeholder: "@yourusername", span: 1 },
+    { key: "age", label: "How old are you", type: "number", placeholder: "Enter your age", span: 1 },
     {
         key: "vehicleType",
         label: "Is your Vehicle a Car , Bike, or both ?",
         type: "select",
         placeholder: "Select an option",
         options: ["Car", "Bike", "Both"],
+        span: 2,
     },
-    { key: "brand", label: "What is the brand?", type: "text", placeholder: "e.g. Toyota, BMW, Ducati" },
-    { key: "model", label: "What is the model?", type: "text", placeholder: "e.g. Supra, M3, Panigale" },
+    { key: "brand", label: "What is the brand?", type: "text", placeholder: "e.g. Toyota, BMW, Ducati", span: 1 },
+    { key: "model", label: "What is the model?", type: "text", placeholder: "e.g. Supra, M3, Panigale", span: 1 },
 ];
 
 const INITIAL_FORM_DATA = Object.fromEntries(FIELD_CONFIG.map((f) => [f.key, ""]));
@@ -112,7 +113,7 @@ function ChevronDown() {
     );
 }
 
-export function RegistrationFormV2() {
+export function RegistrationFormV3() {
     const [formData, setFormData] = useState(INITIAL_FORM_DATA);
     const [errors, setErrors] = useState({});
     const [submitState, setSubmitState] = useState("idle");
@@ -256,7 +257,7 @@ export function RegistrationFormV2() {
             </div>
 
             {/* Heading */}
-            <h2 className="font-outfit font-bold leading-normal text-[48px] text-center text-white tracking-[-0.96px] mb-[60px]">
+            <h2 className="font-outfit font-bold leading-normal text-[48px] text-center text-white tracking-[-0.96px] mb-[40px]">
                 REGISTRATION FORM
             </h2>
 
@@ -272,12 +273,12 @@ export function RegistrationFormV2() {
                     </p>
                 </div>
             ) : (
-                <div className="flex flex-col gap-[28px] w-full">
-                    {FIELD_CONFIG.map(({ key, label, type, placeholder, options }) => (
+                <div className="grid grid-cols-2 gap-x-[20px] gap-y-[20px] w-full">
+                    {FIELD_CONFIG.map(({ key, label, type, placeholder, options, span }) => (
                         <div
                             key={key}
                             ref={(el) => { fieldRefs.current[key] = el; }}
-                            className="flex flex-col gap-[10px] w-full"
+                            className={`flex flex-col gap-[10px] w-full ${span === 2 ? "col-span-2" : "col-span-1"}`}
                         >
                             <label className="font-outfit leading-normal text-[20px] text-white tracking-[-0.4px]">
                                 {label}
@@ -324,7 +325,7 @@ export function RegistrationFormV2() {
                     ))}
 
                     {/* Submit button + error */}
-                    <div className="flex flex-col items-start gap-[12px] mt-[20px]">
+                    <div className="col-span-2 flex flex-col items-start gap-[12px] mt-[20px]">
                         <div
                             onClick={handleSubmit}
                             className={

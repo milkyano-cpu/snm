@@ -57,7 +57,7 @@ export default function FooterCardPart() {
                         </p>
                     </div>
                 </div>
-                <Button icon={<LockIcon className="h-10 w-10 text-white" />} text="LOCK MY SPOT" />
+                <Button icon={<LockIcon className="h-10 w-10 text-white" />} text="LOCK MY SPOT" href="#registration-form"/>
             </div>
         </div>
     );
