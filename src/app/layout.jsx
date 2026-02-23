@@ -1,6 +1,6 @@
 import { Outfit, DM_Sans } from "next/font/google";
 import "./globals.css";
-import Preloader from "@/components/Preloader";
+import Preloader from "@/src/components/Preloader";
 
 const outfit = Outfit({
   variable: "--font-outfit-var",

@@ -1,7 +1,7 @@
-import Button from "@/components/Button";
-import Calendar from "@/icons/CalendarIcon";
-import LocationIcon from "@/icons/LocationIcon";
-import Paperclip from "@/icons/PaperclipIcon";
+import Button from "@/src/components/Button";
+import Calendar from "@/src/icons/CalendarIcon";
+import LocationIcon from "@/src/icons/LocationIcon";
+import Paperclip from "@/src/icons/PaperclipIcon";
 
 export default function InformationPart() {
   return (

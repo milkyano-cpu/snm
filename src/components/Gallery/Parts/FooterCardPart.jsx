@@ -1,7 +1,7 @@
-import Button from "@/components/Button";
-import Calendar from "@/icons/CalendarIcon";
-import LocationIcon from "@/icons/LocationIcon";
-import LockIcon from "@/icons/LockIcon";
+import Button from "@/src/components/Button";
+import Calendar from "@/src/icons/CalendarIcon";
+import LocationIcon from "@/src/icons/LocationIcon";
+import LockIcon from "@/src/icons/LockIcon";
 import Image from "next/image";
 
 export default function FooterCardPart() {

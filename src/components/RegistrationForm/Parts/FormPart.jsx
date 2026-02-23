@@ -1,6 +1,6 @@
-import Button from "@/components/Button";
+import Button from "@/src/components/Button";
 import InputWrapper from "./InputWrapper";
-import GalleryIcon from "@/icons/GalleryIcon";
+import GalleryIcon from "@/src/icons/GalleryIcon";
 
 export default function FormPart() {
   return (
