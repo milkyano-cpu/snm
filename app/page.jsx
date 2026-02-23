@@ -5,7 +5,7 @@ import FeatureSection from "@/components/Feature/FeatureSection";
 import HeroSection from "@/components/Hero/HeroSection";
 import RulesSection from "@/components/Rules/RulesSection";
 import RegistrationForm from "@/components/RegistrationForm/RegistrationForm";
-import { GallerySection } from "@/components/GallerySection";
+import { GallerySection } from "@/components/Gallery/GallerySection";
 
 export default function Home() {
     return (
