@@ -92,7 +92,15 @@ const inputBaseClasses =
 const inputErrorClasses = "border-red-500 ring-2 ring-red-500/30";
 
 function CameraIcon({ className }) {
-  return <img alt="" className={className} src={ASSETS.cameraIcon2} />;
+  return (
+    <Image
+      alt="Camera Icon"
+      className={className}
+      src={ASSETS.cameraIcon2}
+      width={40}
+      height={40}
+    />
+  );
 }
 
 function Spinner({ className }) {
@@ -320,7 +328,7 @@ export function RegistrationFormV3() {
   return (
     <div
       id="registration-form"
-      className="fading-border container flex flex-col items-center rounded-[100px] px-[240px] py-[100px]"
+      className="fading-border container flex flex-col items-center rounded-[100px] px-60 py-25"
     >
       {/* logo */}
       <div className="-mx-[15%] w-[130%] pb-12">
@@ -334,23 +342,23 @@ export function RegistrationFormV3() {
       </div>
 
       {/* Heading */}
-      <h2 className="font-outfit mb-[40px] text-center text-[48px] leading-normal font-bold tracking-[-0.96px] text-white">
+      <h2 className="font-outfit mb-10 text-center text-[48px] leading-normal font-bold tracking-[-0.96px] text-white">
         REGISTRATION FORM
       </h2>
 
       {/* Form area */}
       {submitState === "success" ? (
-        <div className="animate-fade-in-up flex w-full flex-col items-center justify-center py-[120px]">
+        <div className="animate-fade-in-up flex w-full flex-col items-center justify-center py-30">
           <SuccessCheckmark />
           <p className="font-outfit text-center text-[48px] font-bold tracking-[-0.96px] text-white">
             You&apos;re Registered!
           </p>
-          <p className="font-dm-sans mt-[16px] text-center text-[24px] text-white/70">
+          <p className="font-dm-sans mt-4 text-center text-[24px] text-white/70">
             We&apos;ll send your event details and photos to your email.
           </p>
         </div>
       ) : (
-        <div className="grid w-full grid-cols-2 gap-x-[20px] gap-y-[20px]">
+        <div className="grid w-full grid-cols-2 gap-5">
           {FIELD_CONFIG.map(
             ({ key, label, type, placeholder, options, span }) => (
               <div
@@ -358,7 +366,7 @@ export function RegistrationFormV3() {
                 ref={(el) => {
                   fieldRefs.current[key] = el;
                 }}
-                className={`flex w-full flex-col gap-[10px] ${span === 2 ? "col-span-2" : "col-span-1"}`}
+                className={`flex w-full flex-col gap-3 ${span === 2 ? "col-span-2" : "col-span-1"}`}
               >
                 <label className="font-outfit text-[20px] leading-normal tracking-[-0.4px] text-white">
                   {label}
@@ -410,7 +418,7 @@ export function RegistrationFormV3() {
           )}
 
           {/* Submit button + error */}
-          <div className="col-span-2 mt-[20px] flex flex-col items-start gap-[12px]">
+          <div className="col-span-2 mt-5 flex flex-col items-start gap-3">
             <div
               onClick={handleSubmit}
               className={

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export default function Preloader() {
@@ -20,17 +21,16 @@ export default function Preloader() {
 
   return (
     <div className="preloader-overlay" data-phase={phase}>
-      {/* Ambient red glow behind logo */}
       <div className="preloader-glow" />
-
-      {/* Horizontal light sweep */}
       <div className="preloader-sweep" />
-
-      <img
-        src="/SNM-Logos-BlackBG.svg"
+      <Image
         alt="SNM Logo"
+        src="/SNM-Logos-BlackBG.svg"
         className="preloader-logo"
+        width={523}
+        height={170}
         draggable={false}
+        loading="eager"
       />
     </div>
   );
