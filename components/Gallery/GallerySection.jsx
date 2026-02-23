@@ -1,8 +1,7 @@
-import Image from "next/image";
-import GalleryPart from "./Parts/GalleryPart";
 import TextPart from "./Parts/TextPart";
 import FooterCardPart from "./Parts/FooterCardPart";
 import SocialIconPart from "./Parts/SocialIconPart";
+import GalleryPart from "./Parts/GalleryPart";
 
 export function GallerySection() {
     return (
