@@ -3,10 +3,10 @@ export default function Button({ icon, text, className, href }) {
 
   const content = (
     <>
-      <div className="absolute top-[50%] left-2 -translate-y-[50%] rounded-full bg-red-500 transition-transform duration-300 ease-out group-hover:scale-110 group-hover:rotate-360">
+      <div className="absolute top-[50%] left-1 -translate-y-[50%] rounded-full bg-red-500 transition-transform duration-300 ease-out group-hover:scale-110 group-hover:rotate-360 md:left-2">
         {icon}
       </div>
-      <p className="font-outfit mx-5 pr-5 pl-15 text-xl leading-normal font-medium text-black not-italic transition-transform duration-300 ease-out group-hover:translate-x-1">
+      <p className="font-outfit mx-5 pr-5 pl-15 text-base leading-normal font-medium text-black not-italic transition-transform duration-300 ease-out group-hover:translate-x-1 md:text-xl">
         {text}
       </p>
     </>
