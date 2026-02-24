@@ -357,6 +357,13 @@ html {
   );
 }
 
+/* ── Fading border (mobile: less rounded) ── */
+@media (max-width: 767px) {
+  .fading-border::before {
+    border-radius: 30px;
+  }
+}
+
 .bg-entire {
   background-image: url("/bg-entire.png");
   background-size: cover;
