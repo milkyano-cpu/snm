@@ -39,6 +39,10 @@ html {
   background-position-y: 100%;
 }
 
+.bg-lorbek-mobile {
+  background-image: url("/mobile/bg-lorbek-mobile.png");
+}
+
 /* Hero animations */
 @keyframes fadeInUp {
   from {
