@@ -1,11 +1,12 @@
 import { RegistrationFormV3 } from "../RegistrationForm/RegistrationFormV3";
 
+import HeroSectionMobile from "../Hero/HeroSectionMobile";
+
 export default function MobileView() {
   return (
-    <div className="block md:hidden">
-      <section className="bg-entire px-4 py-10">
-        <RegistrationFormV3 />
-      </section>
+    <div className="md:hidden">
+      <HeroSectionMobile />
+      <RegistrationFormV3 />
     </div>
   );
 }
