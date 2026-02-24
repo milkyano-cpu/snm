@@ -8,7 +8,7 @@ import Paperclip from "@/src/icons/PaperclipIcon";
 
 export default function HeroSectionMobile() {
   return (
-    <section className="bg-lorbek-mobile">
+    <section className="bg-lorbek-mobile py-20">
       <LogoPartMobile />
       <InformationPartMobile />
       <HeroImagePartMobile />
