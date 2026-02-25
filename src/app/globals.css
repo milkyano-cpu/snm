@@ -366,10 +366,16 @@ html {
   );
 }
 
-/* ── Fading border (mobile: less rounded) ── */
+/* ── Fading border (mobile: thinner) ── */
 @media (max-width: 767px) {
+  .fading-border {
+    border-width: 0.5px;
+    border-radius: 30px;
+  }
   .fading-border::before {
     border-radius: 30px;
+    inset: -0.5px;
+    border-width: 0.5px;
   }
 }
 

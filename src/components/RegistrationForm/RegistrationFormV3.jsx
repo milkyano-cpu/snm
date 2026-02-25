@@ -351,7 +351,7 @@ export function RegistrationFormV3() {
         className="fading-border mx-auto flex max-w-84 flex-col items-center rounded-2xl px-10 py-15 md:max-w-[60vw] md:rounded-[100px] md:px-20 md:py-25"
       >
         {/* logo */}
-        <div className="w-full pb-8 md:-mx-[15%] md:w-[130%] md:pb-12">
+        <div className="-mx-[15%] w-[130%] pb-8 md:pb-12">
           <Image
             src="/registration-form/logo.png"
             alt="Registration Form Logo"
