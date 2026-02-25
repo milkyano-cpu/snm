@@ -23,7 +23,7 @@ export default function RulesSectionMobile() {
         <h3 className="mb-8.5 text-center text-2xl font-bold">
           RESPECT THE SPACE
         </h3>
-        <ul className="text-center">
+        <ul className="text-center text-2xl">
           <li>• No burnouts</li>
           <li>• No excessive revving</li>
           <li>• No hooning or unwanted attention</li>

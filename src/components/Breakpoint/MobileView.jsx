@@ -1,5 +1,6 @@
 import FeatureSectionMobile from "../Feature/FeatureSectionMobile";
 import FeaturedCarMobile from "../FeaturedCar/FeaturedCarMobile";
+import GalleryMobileSection from "../Gallery/GalleryMobileSection";
 import HeroSectionMobile from "../Hero/HeroSectionMobile";
 import { RegistrationFormV3 } from "../RegistrationForm/RegistrationFormV3";
 import RulesSectionMobile from "../Rules/RulesSectionMobile";
@@ -14,6 +15,7 @@ export default function MobileView() {
       <VipSectionMobile />
       <FeaturedCarMobile />
       <RegistrationFormV3 />
+      <GalleryMobileSection />
     </div>
   );
 }
