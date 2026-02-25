@@ -1,6 +1,5 @@
-import { RegistrationFormV3 } from "../RegistrationForm/RegistrationFormV3";
-
 import HeroSectionMobile from "../Hero/HeroSectionMobile";
+import { RegistrationFormV3 } from "../RegistrationForm/RegistrationFormV3";
 
 export default function MobileView() {
   return (

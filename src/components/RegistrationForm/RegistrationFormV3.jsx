@@ -347,7 +347,7 @@ export function RegistrationFormV3() {
   return (
     <div
       id="registration-form"
-      className="fading-border mx-auto flex max-w-[90%] flex-col items-center rounded-[16px] px-10 py-[60px] md:max-w-[60vw] md:rounded-[100px] md:px-20 md:py-25"
+      className="fading-border mx-auto flex max-w-[90%] flex-col items-center rounded-2xl px-10 py-15 md:max-w-[60vw] md:rounded-[100px] md:px-20 md:py-25"
     >
       {/* logo */}
       <div className="w-full pb-8 md:-mx-[15%] md:w-[130%] md:pb-12">
@@ -385,7 +385,7 @@ export function RegistrationFormV3() {
                 ref={(el) => {
                   fieldRefs.current[key] = el;
                 }}
-                className={`flex w-full flex-col gap-3 col-span-1 ${span === 2 ? "md:col-span-2" : "md:col-span-1"}`}
+                className={`col-span-1 flex w-full flex-col gap-3 ${span === 2 ? "md:col-span-2" : "md:col-span-1"}`}
               >
                 <label className="font-outfit text-[16px] leading-normal tracking-[-0.4px] text-white md:text-[20px]">
                   {label}
