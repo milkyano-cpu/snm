@@ -517,3 +517,18 @@ html {
   border-color: rgb(239, 68, 68) !important;
   box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3) !important;
 }
+
+/* Features Mobile */
+.features-mobile {
+  position: relative;
+}
+
+.features-mobile::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 84px;
+  height: 0.85px;
+  background-color: #fff;
+}
