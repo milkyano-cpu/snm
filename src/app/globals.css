@@ -543,3 +543,19 @@ html {
   height: 0.85px;
   background-color: #fff;
 }
+
+/* Featured Car Mobile Section Separator */
+.featured-car > div:not(:last-child) {
+  position: relative;
+}
+
+.featured-car > div:not(:last-child)::after {
+  position: relative;
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 84px;
+  height: 0.85px;
+  background-color: #fff;
+}
