@@ -345,136 +345,138 @@ export function RegistrationFormV3() {
   }, [formData, validate, submitState, scrollToFirstError]);
 
   return (
-    <div
-      id="registration-form"
-      className="fading-border mx-auto flex max-w-[90%] flex-col items-center rounded-2xl px-10 py-15 md:max-w-[60vw] md:rounded-[100px] md:px-20 md:py-25"
-    >
-      {/* logo */}
-      <div className="w-full pb-8 md:-mx-[15%] md:w-[130%] md:pb-12">
-        <Image
-          src="/registration-form/logo.png"
-          alt="Registration Form Logo"
-          width={2000}
-          height={2000}
-          className="h-full w-full"
-        />
-      </div>
-
-      {/* Heading */}
-      <h2 className="font-outfit mb-6 text-center text-[24px] leading-normal font-bold tracking-[-0.96px] text-white md:mb-10 md:text-[48px]">
-        REGISTRATION FORM
-      </h2>
-
-      {/* Form area */}
-      {submitState === "success" ? (
-        <div className="animate-fade-in-up flex w-full flex-col items-center justify-center py-15 md:py-30">
-          <SuccessCheckmark />
-          <p className="font-outfit text-center text-[24px] font-bold tracking-[-0.96px] text-white md:text-[48px]">
-            You&apos;re Registered!
-          </p>
-          <p className="font-dm-sans mt-4 text-center text-[16px] text-white/70 md:text-[24px]">
-            We&apos;ll send your event details and photos to your email.
-          </p>
+    <section className="py-20">
+      <div
+        id="registration-form"
+        className="fading-border mx-auto flex max-w-[90%] flex-col items-center rounded-2xl px-10 py-15 md:max-w-[60vw] md:rounded-[100px] md:px-20 md:py-25"
+      >
+        {/* logo */}
+        <div className="w-full pb-8 md:-mx-[15%] md:w-[130%] md:pb-12">
+          <Image
+            src="/registration-form/logo.png"
+            alt="Registration Form Logo"
+            width={2000}
+            height={2000}
+            className="h-full w-full"
+          />
         </div>
-      ) : (
-        <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2">
-          {FIELD_CONFIG.map(
-            ({ key, label, type, placeholder, options, span }) => (
-              <div
-                key={key}
-                ref={(el) => {
-                  fieldRefs.current[key] = el;
-                }}
-                className={`col-span-1 flex w-full flex-col gap-3 ${span === 2 ? "md:col-span-2" : "md:col-span-1"}`}
-              >
-                <label className="font-outfit text-[16px] leading-normal tracking-[-0.4px] text-white md:text-[20px]">
-                  {label}
-                </label>
-                {type === "select" ? (
-                  <div className="relative">
-                    <select
+
+        {/* Heading */}
+        <h2 className="font-outfit mb-6 text-center text-[24px] leading-normal font-bold tracking-[-0.96px] text-white md:mb-10 md:text-[48px]">
+          REGISTRATION FORM
+        </h2>
+
+        {/* Form area */}
+        {submitState === "success" ? (
+          <div className="animate-fade-in-up flex w-full flex-col items-center justify-center py-15 md:py-30">
+            <SuccessCheckmark />
+            <p className="font-outfit text-center text-[24px] font-bold tracking-[-0.96px] text-white md:text-[48px]">
+              You&apos;re Registered!
+            </p>
+            <p className="font-dm-sans mt-4 text-center text-[16px] text-white/70 md:text-[24px]">
+              We&apos;ll send your event details and photos to your email.
+            </p>
+          </div>
+        ) : (
+          <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2">
+            {FIELD_CONFIG.map(
+              ({ key, label, type, placeholder, options, span }) => (
+                <div
+                  key={key}
+                  ref={(el) => {
+                    fieldRefs.current[key] = el;
+                  }}
+                  className={`col-span-1 flex w-full flex-col gap-3 ${span === 2 ? "md:col-span-2" : "md:col-span-1"}`}
+                >
+                  <label className="font-outfit text-[16px] leading-normal tracking-[-0.4px] text-white md:text-[20px]">
+                    {label}
+                  </label>
+                  {type === "select" ? (
+                    <div className="relative">
+                      <select
+                        value={formData[key]}
+                        onChange={(e) => handleChange(key, e.target.value)}
+                        className={`${inputBaseClasses} cursor-pointer appearance-none pr-10 ${
+                          formData[key] ? "text-black" : "text-gray-400"
+                        } ${errors[key] ? inputErrorClasses : ""}`}
+                      >
+                        <option value="" disabled>
+                          {placeholder}
+                        </option>
+                        {options.map((opt) => (
+                          <option key={opt} value={opt} className="text-black">
+                            {opt}
+                          </option>
+                        ))}
+                      </select>
+                      <ChevronDown />
+                    </div>
+                  ) : type === "phone" ? (
+                    <PhoneInput
+                      defaultCountry="au"
+                      value={formData[key]}
+                      onChange={(phone) => handleChange(key, phone)}
+                      className={`reg-phone-input ${errors[key] ? "reg-phone-input-error" : ""}`}
+                    />
+                  ) : (
+                    <input
+                      type={type}
                       value={formData[key]}
                       onChange={(e) => handleChange(key, e.target.value)}
-                      className={`${inputBaseClasses} cursor-pointer appearance-none pr-10 ${
-                        formData[key] ? "text-black" : "text-gray-400"
-                      } ${errors[key] ? inputErrorClasses : ""}`}
-                    >
-                      <option value="" disabled>
-                        {placeholder}
-                      </option>
-                      {options.map((opt) => (
-                        <option key={opt} value={opt} className="text-black">
-                          {opt}
-                        </option>
-                      ))}
-                    </select>
-                    <ChevronDown />
-                  </div>
-                ) : type === "phone" ? (
-                  <PhoneInput
-                    defaultCountry="au"
-                    value={formData[key]}
-                    onChange={(phone) => handleChange(key, phone)}
-                    className={`reg-phone-input ${errors[key] ? "reg-phone-input-error" : ""}`}
-                  />
-                ) : (
-                  <input
-                    type={type}
-                    value={formData[key]}
-                    onChange={(e) => handleChange(key, e.target.value)}
-                    placeholder={placeholder}
-                    {...(type === "number" ? { min: 0 } : {})}
-                    className={`${inputBaseClasses} text-black ${errors[key] ? inputErrorClasses : ""}`}
-                  />
-                )}
-                {errors[key] && (
-                  <p className="font-dm-sans text-[14px] text-red-500">
-                    {errors[key]}
-                  </p>
-                )}
-              </div>
-            ),
-          )}
-
-          {/* Submit button + error */}
-          <div className="col-span-1 mt-5 flex flex-col items-center gap-3 md:col-span-2 md:items-start">
-            <div
-              onClick={handleSubmit}
-              className={
-                submitState === "submitting"
-                  ? "pointer-events-none opacity-60"
-                  : "cursor-pointer"
-              }
-            >
-              <Button
-                icon={
-                  submitState === "submitting" ? (
-                    <Spinner className="h-10 w-10 p-1.5 text-white" />
-                  ) : (
-                    <CameraIcon className="h-10 w-10 p-1.5" />
-                  )
-                }
-                text={
-                  submitState === "submitting"
-                    ? "SUBMITTING..."
-                    : "GET MY EVENT PHOTOS"
-                }
-              />
-            </div>
-            {submitState === "error" && submitError && (
-              <p className="font-dm-sans text-[14px] text-red-500">
-                {submitError}
-              </p>
+                      placeholder={placeholder}
+                      {...(type === "number" ? { min: 0 } : {})}
+                      className={`${inputBaseClasses} text-black ${errors[key] ? inputErrorClasses : ""}`}
+                    />
+                  )}
+                  {errors[key] && (
+                    <p className="font-dm-sans text-[14px] text-red-500">
+                      {errors[key]}
+                    </p>
+                  )}
+                </div>
+              ),
             )}
-          </div>
-        </div>
-      )}
 
-      <Toast
-        key={toast ? toast.message : ""}
-        toast={toast}
-        onDismiss={dismissToast}
-      />
-    </div>
+            {/* Submit button + error */}
+            <div className="col-span-1 mt-5 flex flex-col items-center gap-3 md:col-span-2 md:items-start">
+              <div
+                onClick={handleSubmit}
+                className={
+                  submitState === "submitting"
+                    ? "pointer-events-none opacity-60"
+                    : "cursor-pointer"
+                }
+              >
+                <Button
+                  icon={
+                    submitState === "submitting" ? (
+                      <Spinner className="h-10 w-10 p-1.5 text-white" />
+                    ) : (
+                      <CameraIcon className="h-10 w-10 p-1.5" />
+                    )
+                  }
+                  text={
+                    submitState === "submitting"
+                      ? "SUBMITTING..."
+                      : "GET MY EVENT PHOTOS"
+                  }
+                />
+              </div>
+              {submitState === "error" && submitError && (
+                <p className="font-dm-sans text-[14px] text-red-500">
+                  {submitError}
+                </p>
+              )}
+            </div>
+          </div>
+        )}
+
+        <Toast
+          key={toast ? toast.message : ""}
+          toast={toast}
+          onDismiss={dismissToast}
+        />
+      </div>
+    </section>
   );
 }

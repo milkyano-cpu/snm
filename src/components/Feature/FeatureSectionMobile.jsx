@@ -5,7 +5,7 @@ import PremiumCarIcon from "@/src/icons/PremiumCarIcon";
 
 export default function FeatureSectionMobile() {
   return (
-    <section className="py-20 bg-feature-section-mobile">
+    <section className="bg-feature-section-mobile py-20">
       <div className="fading-border mx-auto flex max-w-84 justify-center">
         <div className="flex max-w-44 flex-col items-center gap-6.5 py-7.5">
           <div className="features-mobile flex flex-col items-center gap-3.5">
