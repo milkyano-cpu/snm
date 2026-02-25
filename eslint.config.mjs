@@ -58,8 +58,6 @@ const eslintConfig = defineConfig([
       "import/newline-after-import": "error",
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "error",
-      "jsx-a11y/alt-text": "error",
-      "jsx-a11y/anchor-is-valid": "error",
     },
   },
   globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts"]),

@@ -43,6 +43,11 @@ html {
   background-image: url("/mobile/bg-lorbek-mobile.png");
 }
 
+.bg-feature-section-mobile {
+  background-image: url("/features/bg-feature-section-mobile.png");
+  background-size: cover;
+}
+
 /* Hero animations */
 @keyframes fadeInUp {
   from {
