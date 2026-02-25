@@ -6,7 +6,7 @@ export default function FeaturedCarMobile() {
       </h2>
       <div className="fading-border mx-auto w-84 grow py-8">
         <div className="featured-car mx-auto flex max-w-55 flex-col gap-6">
-          <div className="flex flex-col items-center gap-6 pb-6 text-center">
+          <div className="flex flex-col items-center gap-6 text-center">
             <div className="mx-auto flex h-5 w-5 items-center justify-center rounded-full bg-white text-lg font-light text-black">
               <span>1</span>
             </div>
@@ -15,7 +15,7 @@ export default function FeaturedCarMobile() {
             </p>
           </div>
 
-          <div className="flex flex-col items-center gap-6 pb-6 text-center">
+          <div className="flex flex-col items-center gap-6 text-center">
             <div className="mx-auto flex h-5 w-5 items-center justify-center rounded-full bg-white text-lg font-light text-black">
               <span>2</span>
             </div>

@@ -5,6 +5,7 @@ import HeroSectionMobile from "../Hero/HeroSectionMobile";
 import JargonSectionMobile from "../Jargon/JargonSectionMobile";
 import { RegistrationFormV3 } from "../RegistrationForm/RegistrationFormV3";
 import RulesSectionMobile from "../Rules/RulesSectionMobile";
+import SeeYouSectionMobile from "../SeeYou/SeeYouSectionMobile";
 import VipSectionMobile from "../Vip/VipSectionMobile";
 
 export default function MobileView() {
@@ -18,6 +19,7 @@ export default function MobileView() {
       <RegistrationFormV3 />
       <GalleryMobileSection />
       <JargonSectionMobile />
+      <SeeYouSectionMobile />
     </div>
   );
 }

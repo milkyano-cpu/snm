@@ -530,11 +530,12 @@ html {
 }
 
 /* Features Mobile */
-.features-mobile {
+.features-mobile > div:not(:last-child) {
   position: relative;
+  padding-bottom: 24px;
 }
 
-.features-mobile::after {
+.features-mobile > div:not(:last-child)::after {
   content: "";
   display: block;
   position: absolute;
@@ -547,6 +548,7 @@ html {
 /* Featured Car Mobile Section Separator */
 .featured-car > div:not(:last-child) {
   position: relative;
+  padding-bottom: 24px;
 }
 
 .featured-car > div:not(:last-child)::after {
