@@ -11,17 +11,19 @@ import VipSectionMobile from "../Vip/VipSectionMobile";
 
 export default function MobileView() {
   return (
-    <div className="md:hidden">
+    <div className="sm:hidden">
       <HeroSectionMobile />
-      <FeatureSectionMobile />
-      <RulesSectionMobile />
-      <VipSectionMobile />
-      <FeaturedCarMobile />
-      <RegistrationFormV3 />
-      <GalleryMobileSection />
-      <JargonSectionMobile />
-      <SeeYouSectionMobile />
-      <SocialSectionMobile />
+      <section className="bg-entire-mobile">
+        <FeatureSectionMobile />
+        <RulesSectionMobile />
+        <VipSectionMobile />
+        <FeaturedCarMobile />
+        <RegistrationFormV3 />
+        <GalleryMobileSection />
+        <JargonSectionMobile />
+        <SeeYouSectionMobile />
+        <SocialSectionMobile />
+      </section>
     </div>
   );
 }

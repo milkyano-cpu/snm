@@ -41,6 +41,8 @@ html {
 
 .bg-lorbek-mobile {
   background-image: url("/mobile/bg-lorbek-mobile.png");
+  background-size: cover;
+  background-position: right;
 }
 
 .bg-feature-section-mobile {
@@ -560,4 +562,9 @@ html {
   width: 84px;
   height: 0.85px;
   background-color: #fff;
+}
+
+.bg-entire-mobile {
+  background-image: url("/bg-entire-mobile.png");
+  background-size: cover;
 }
