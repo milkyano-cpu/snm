@@ -88,7 +88,7 @@ const INITIAL_FORM_DATA = Object.fromEntries(
 );
 
 const inputBaseClasses =
-  "bg-white h-[38px] md:h-[48px] rounded-[4px] md:rounded-[8px] w-full px-[16px] font-dm-sans text-[16px] outline-none transition-all duration-200 border border-transparent focus:ring-2 focus:ring-white/20 focus:shadow-[0_0_12px_rgba(255,255,255,0.08)]";
+  "bg-white h-[38px] sm:h-[48px] rounded-[4px] sm:rounded-[8px] w-full px-[16px] font-dm-sans text-[16px] outline-none transition-all duration-200 border border-transparent focus:ring-2 focus:ring-white/20 focus:shadow-[0_0_12px_rgba(255,255,255,0.08)]";
 
 const inputErrorClasses = "border-red-500 ring-2 ring-red-500/30";
 
@@ -348,10 +348,10 @@ export function RegistrationFormV3() {
     <section className="py-20">
       <div
         id="registration-form"
-        className="fading-border mx-auto flex max-w-84 flex-col items-center rounded-2xl px-10 py-15 md:max-w-[60vw] md:rounded-[100px] md:px-20 md:py-25"
+        className="fading-border mx-auto flex max-w-84 flex-col items-center rounded-2xl px-10 py-15 sm:max-w-[60vw] sm:rounded-[100px] sm:px-20 sm:py-25"
       >
         {/* logo */}
-        <div className="-mx-[15%] w-[130%] pb-8 md:pb-12">
+        <div className="-mx-[15%] w-[130%] pb-8 sm:pb-12">
           <Image
             src="/registration-form/logo.png"
             alt="Registration Form Logo"
@@ -362,23 +362,23 @@ export function RegistrationFormV3() {
         </div>
 
         {/* Heading */}
-        <h2 className="font-outfit mb-6 text-center text-[24px] leading-normal font-bold tracking-[-0.96px] text-white md:mb-10 md:text-[48px]">
+        <h2 className="font-outfit mb-6 text-center text-[24px] leading-normal font-bold tracking-[-0.96px] text-white sm:mb-10 sm:text-[48px]">
           REGISTRATION FORM
         </h2>
 
         {/* Form area */}
         {submitState === "success" ? (
-          <div className="animate-fade-in-up flex w-full flex-col items-center justify-center py-15 md:py-30">
+          <div className="animate-fade-in-up flex w-full flex-col items-center justify-center py-15 sm:py-30">
             <SuccessCheckmark />
-            <p className="font-outfit text-center text-[24px] font-bold tracking-[-0.96px] text-white md:text-[48px]">
+            <p className="font-outfit text-center text-[24px] font-bold tracking-[-0.96px] text-white sm:text-[48px]">
               You&apos;re Registered!
             </p>
-            <p className="font-dm-sans mt-4 text-center text-[16px] text-white/70 md:text-[24px]">
+            <p className="font-dm-sans mt-4 text-center text-[16px] text-white/70 sm:text-[24px]">
               We&apos;ll send your event details and photos to your email.
             </p>
           </div>
         ) : (
-          <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2">
+          <div className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2">
             {FIELD_CONFIG.map(
               ({ key, label, type, placeholder, options, span }) => (
                 <div
@@ -386,9 +386,9 @@ export function RegistrationFormV3() {
                   ref={(el) => {
                     fieldRefs.current[key] = el;
                   }}
-                  className={`col-span-1 flex w-full flex-col gap-3 ${span === 2 ? "md:col-span-2" : "md:col-span-1"}`}
+                  className={`col-span-1 flex w-full flex-col gap-3 ${span === 2 ? "sm:col-span-2" : "sm:col-span-1"}`}
                 >
-                  <label className="font-outfit text-[16px] leading-normal tracking-[-0.4px] text-white md:text-[20px]">
+                  <label className="font-outfit text-[16px] leading-normal tracking-[-0.4px] text-white sm:text-[20px]">
                     {label}
                   </label>
                   {type === "select" ? (
@@ -438,7 +438,7 @@ export function RegistrationFormV3() {
             )}
 
             {/* Submit button + error */}
-            <div className="col-span-1 mt-5 flex flex-col items-center gap-3 md:col-span-2 md:items-start">
+            <div className="col-span-1 mt-5 flex flex-col items-center gap-3 sm:col-span-2 sm:items-start">
               <div
                 onClick={handleSubmit}
                 className={

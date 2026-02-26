@@ -9,7 +9,7 @@ import { YourCarSection } from "../YourCarSection";
 
 export default function DesktopView() {
   return (
-    <div className="hidden md:block">
+    <div className="hidden sm:block">
       <HeroSection />
       <section className="bg-entire">
         <FeatureSection />

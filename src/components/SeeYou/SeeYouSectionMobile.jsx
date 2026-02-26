@@ -3,7 +3,7 @@ import Button from "../Button";
 import IconPartMobile from "./Parts/IconPartMobile";
 import InformationPartMobile from "./Parts/InformationPartMobile";
 
-import GalleryIcon from "@/src/icons/GalleryIcon";
+import LockIcon from "@/src/icons/LockIcon";
 
 export default function SeeYouSectionMobile() {
   return (
@@ -16,8 +16,8 @@ export default function SeeYouSectionMobile() {
           </h2>
           <InformationPartMobile />
           <Button
-            icon={<GalleryIcon className="h-10 w-10 text-white" />}
-            text="GET MY EVENT PHOTOS"
+            icon={<LockIcon className="h-10 w-10 text-white" />}
+            text="LOCK MY SPOT"
           />
         </div>
       </div>

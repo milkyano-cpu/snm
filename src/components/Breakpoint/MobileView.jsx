@@ -11,7 +11,7 @@ import VipSectionMobile from "../Vip/VipSectionMobile";
 
 export default function MobileView() {
   return (
-    <div className="md:hidden">
+    <div className="sm:hidden">
       <HeroSectionMobile />
       <FeatureSectionMobile />
       <RulesSectionMobile />
