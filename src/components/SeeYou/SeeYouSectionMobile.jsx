@@ -16,7 +16,7 @@ export default function SeeYouSectionMobile() {
           </h2>
           <InformationPartMobile />
           <Button
-            icon={<LockIcon className="h-10 w-10 text-white p-2" />}
+            icon={<LockIcon className="h-10 w-10 p-2 text-white" />}
             text="LOCK MY SPOT"
           />
         </div>
