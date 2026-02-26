@@ -7,7 +7,7 @@ export default function SocialIconPart() {
         href="https://www.instagram.com/snm.melbourne/?hl=en"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex min-h-12 min-w-12 items-center justify-center border"
+        className="flex min-h-12 min-w-12 items-center justify-center rounded-md border"
       >
         <div className="h-8">
           <Image
@@ -23,7 +23,7 @@ export default function SocialIconPart() {
         href="https://www.facebook.com/p/Sunday-Night-Meet-61572629826095/"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex min-h-12 min-w-12 items-center justify-center border"
+        className="flex min-h-12 min-w-12 items-center justify-center rounded-md border"
       >
         <div className="h-8">
           <Image
@@ -35,7 +35,7 @@ export default function SocialIconPart() {
           />
         </div>
       </a>
-      <div className="flex min-h-12 min-w-12 items-center justify-center border">
+      <div className="flex min-h-12 min-w-12 items-center justify-center rounded-md border">
         <div className="h-8">
           <Image
             src="/icons/tiktok-icon.png"

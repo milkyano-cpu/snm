@@ -1,6 +1,9 @@
 export default function VipDescriptionPart() {
   return (
-    <div data-animate className="mx-auto max-w-75 py-20 text-center text-2xl font-medium">
+    <div
+      data-animate
+      className="mx-auto max-w-75 py-20 text-center text-2xl font-medium"
+    >
       <h3 className="underline">
         A limited VIP display area will be reserved for selected vehicles
       </h3>

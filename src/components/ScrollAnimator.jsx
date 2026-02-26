@@ -6,7 +6,7 @@ export default function ScrollAnimator() {
   useEffect(() => {
     const elements = document.querySelectorAll("[data-animate]");
     if (elements.length === 0) {
-      return;
+      return undefined;
     }
 
     const observer = new IntersectionObserver(

@@ -36,7 +36,7 @@ export default function SocialSectionMobile() {
           <Wrapper
             key={index}
             {...wrapperProps}
-            className="flex h-6 w-6 items-center justify-center border"
+            className="flex h-6 w-6 items-center justify-center rounded-sm border"
           >
             <div className="h-4">
               <Image
