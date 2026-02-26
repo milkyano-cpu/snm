@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function SocialIconPart() {
   return (
     <div data-animate className="flex justify-center gap-3 pb-88">
-      <div className="flex min-h-12 min-w-12 items-center justify-center border">
+      <div className="flex min-h-12 min-w-12 items-center justify-center rounded-md border">
         <div className="h-8">
           <Image
             src="/icons/instagram-icon.png"
@@ -14,7 +14,7 @@ export default function SocialIconPart() {
           />
         </div>
       </div>
-      <div className="flex min-h-12 min-w-12 items-center justify-center border">
+      <div className="flex min-h-12 min-w-12 items-center justify-center rounded-md border">
         <div className="h-8">
           <Image
             src="/icons/facebook-icon.png"
@@ -25,7 +25,7 @@ export default function SocialIconPart() {
           />
         </div>
       </div>
-      <div className="flex min-h-12 min-w-12 items-center justify-center border">
+      <div className="flex min-h-12 min-w-12 items-center justify-center rounded-md border">
         <div className="h-8">
           <Image
             src="/icons/tiktok-icon.png"
