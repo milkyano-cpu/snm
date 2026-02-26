@@ -43,11 +43,18 @@ html {
   background-image: url("/mobile/bg-lorbek-mobile.png");
   background-size: cover;
   background-position: right;
+  position: relative;
 }
 
-.bg-feature-section-mobile {
-  background-image: url("/features/bg-feature-section-mobile.png");
-  background-size: cover;
+.bg-lorbek-mobile::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 160px;
+  background: linear-gradient(to bottom, transparent, #010101);
+  pointer-events: none;
 }
 
 /* Hero animations */
@@ -576,4 +583,17 @@ html {
 .bg-entire-mobile {
   background-image: url("/bg-entire-mobile.png");
   background-size: cover;
+  background-position: bottom;
+  position: relative;
+}
+
+.bg-entire-mobile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 160px;
+  background: linear-gradient(to bottom, #010101, transparent);
+  pointer-events: none;
 }
