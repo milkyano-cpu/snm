@@ -7,7 +7,7 @@ export default function RulesSectionMobile() {
         Come For The Cars Stay For The Atmosphere!
       </h2>
 
-      <div className="fading-border relative mx-auto max-w-84 bg-[#0D0D0D33] pt-18 pb-10">
+      <div className="fading-border relative mx-auto max-w-84 bg-[#0000008C] pt-18 pb-10">
         <div className="absolute top-0 left-1/2 z-10 flex min-w-73 -translate-1/2 items-center gap-3 rounded-4xl bg-[#1a1a1a] px-8.5 py-4">
           <div className="h-5 w-5">
             <Image

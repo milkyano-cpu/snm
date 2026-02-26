@@ -1,21 +1,58 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
+
+const MIN_HOLD_MS = 1600;
 
 export default function Preloader() {
   const [phase, setPhase] = useState("logo-in");
 
-  useEffect(() => {
-    const t1 = setTimeout(() => setPhase("hold"), 1000);
-    const t2 = setTimeout(() => setPhase("exit"), 1900);
-    const t3 = setTimeout(() => setPhase("done"), 2600);
-    return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-      clearTimeout(t3);
-    };
+  const startExit = useCallback(() => {
+    setPhase("exit");
+    setTimeout(() => setPhase("done"), 700);
   }, []);
+
+  // Phase 1: logo-in → hold
+  useEffect(() => {
+    const t = setTimeout(() => setPhase("hold"), 1000);
+    return () => clearTimeout(t);
+  }, []);
+
+  // Phase 2: hold → exit (when loaded + min time met)
+  useEffect(() => {
+    if (phase !== "hold") {
+      return;
+    }
+
+    let minTimeMet = false;
+    let pageLoaded = document.readyState === "complete";
+
+    const tryExit = () => {
+      if (minTimeMet && pageLoaded) {
+        startExit();
+      }
+    };
+
+    const minTimer = setTimeout(() => {
+      minTimeMet = true;
+      tryExit();
+    }, MIN_HOLD_MS);
+
+    const onLoad = () => {
+      pageLoaded = true;
+      tryExit();
+    };
+
+    if (!pageLoaded) {
+      window.addEventListener("load", onLoad);
+    }
+
+    return () => {
+      clearTimeout(minTimer);
+      window.removeEventListener("load", onLoad);
+    };
+  }, [phase, startExit]);
 
   if (phase === "done") {
     return null;
