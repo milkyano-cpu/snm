@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function RulesPart() {
   return (
-    <div className="container">
+    <div data-animate className="container">
       <Image
         src="/rules/community-rules.png"
         alt="Community Rules"

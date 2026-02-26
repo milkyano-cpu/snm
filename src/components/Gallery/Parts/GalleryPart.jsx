@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function GalleryPart() {
   return (
-    <section className="container py-102">
+    <section data-animate className="container py-102">
       <div className="overflow-hidden rounded-[44px]">
         <Image
           src="/gallery/gallery-image.png"

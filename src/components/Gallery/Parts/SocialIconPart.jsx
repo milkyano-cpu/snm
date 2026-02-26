@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function SocialIconPart() {
   return (
-    <div className="flex justify-center gap-3 pb-88">
+    <div data-animate className="flex justify-center gap-3 pb-88">
       <div className="flex min-h-12 min-w-12 items-center justify-center border">
         <div className="h-8">
           <Image

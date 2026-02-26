@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function FeatureSection() {
   return (
-    <div className="container py-100">
+    <div data-animate className="container py-100">
       <Image
         src="/feature-section.png"
         alt="feature section"
