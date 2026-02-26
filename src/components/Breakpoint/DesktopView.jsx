@@ -11,8 +11,8 @@ export default function DesktopView() {
   return (
     <div className="hidden overflow-clip sm:block">
       <HeroSection />
+      <FeatureSection />
       <section className="bg-entire">
-        <FeatureSection />
         <RulesSection />
         <LimitedDisplaySection />
         <VIPApplySection />

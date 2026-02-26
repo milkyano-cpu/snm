@@ -1,6 +1,6 @@
 export default function InvitationPart() {
   return (
-    <section data-animate className="py-32">
+    <section data-animate className="py-58">
       <h2 className="text-center text-4xl font-semibold">
         Come For The Cars
         <br />

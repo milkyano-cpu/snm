@@ -4,7 +4,7 @@ import CrownIcon from "@/src/icons/CrownIcon";
 
 export function VIPApplySection() {
   return (
-    <section data-animate className="container flex flex-col gap-48">
+    <section data-animate className="container flex flex-col gap-58">
       <div className="flex flex-col gap-12 text-center">
         <h3 className="text-3xl font-bold">
           Want to be considered for

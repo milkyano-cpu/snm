@@ -5,7 +5,7 @@ import TextPart from "./Parts/TextPart";
 
 export function GallerySection() {
   return (
-    <section className="container pt-102">
+    <section className="container">
       <GalleryPart />
       <TextPart />
       <FooterCardPart />

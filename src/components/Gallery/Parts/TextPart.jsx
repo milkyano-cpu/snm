@@ -1,6 +1,6 @@
 export default function TextPart() {
   return (
-    <div className="flex justify-center gap-12 py-48 text-4xl">
+    <div className="flex justify-center gap-12 py-58 text-4xl">
       <h3 data-animate>
         Good <span className="font-bold">People</span>
       </h3>
