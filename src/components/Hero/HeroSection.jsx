@@ -8,7 +8,7 @@ export default function HeroSection() {
       <div className="hero-container grid grid-cols-2">
         <LogoPart />
         <InformationPart />
-        <div className="col-start-2 row-start-1 row-span-2 w-full">
+        <div className="col-start-2 row-span-2 row-start-1 w-full">
           <ImagePart />
         </div>
       </div>
