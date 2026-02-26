@@ -634,3 +634,20 @@ body.preloader-done .animate-float {
   background: linear-gradient(to bottom, #010101, transparent);
   pointer-events: none;
 }
+
+.bg-gallery-mobile {
+  background: linear-gradient(
+    180deg,
+    rgba(98, 32, 28, 0.18) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    #000000 100%
+  );
+}
+
+.bg-jargon-section-mobile {
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.02) 0%,
+    #000000 100%
+  );
+}

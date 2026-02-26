@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function GalleryMobileSection() {
   return (
-    <section data-animate className="py-20">
+    <section data-animate className="bg-gallery-mobile py-20">
       <div className="mx-auto max-w-84">
         <Image
           src="/gallery/gallery-section-mobile.png"

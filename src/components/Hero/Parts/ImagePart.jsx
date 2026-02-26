@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function ImagePart() {
   return (
-    <div className="animate-fade-in-right">
+    <div className="animate-fade-in-right w-[130%]">
       <Image
         src="/supercar-bike-hero.png"
         alt="Supercar and Motorcycle"
