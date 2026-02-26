@@ -55,6 +55,7 @@ html {
   height: 160px;
   background: linear-gradient(to bottom, transparent, #010101);
   pointer-events: none;
+  z-index: 1;
 }
 
 /* Hero animations */
