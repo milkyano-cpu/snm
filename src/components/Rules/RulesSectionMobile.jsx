@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function RulesSectionMobile() {
   return (
-    <section className="py-20">
+    <section data-animate className="py-20">
       <h2 className="mx-auto max-w-70 pb-20 text-center text-2xl font-medium">
         Come For The Cars Stay For The Atmosphere!
       </h2>

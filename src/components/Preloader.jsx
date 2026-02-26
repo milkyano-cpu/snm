@@ -9,6 +9,7 @@ export default function Preloader() {
   const [phase, setPhase] = useState("logo-in");
 
   const startExit = useCallback(() => {
+    document.body.classList.add("preloader-done");
     setPhase("exit");
     setTimeout(() => setPhase("done"), 700);
   }, []);

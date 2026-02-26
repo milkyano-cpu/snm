@@ -1,6 +1,6 @@
 export default function FeaturedCarMobile() {
   return (
-    <section className="flex flex-col gap-16 py-20">
+    <section data-animate className="flex flex-col gap-16 py-20">
       <h2 className="mx-auto max-w-55 text-center text-3xl font-medium">
         Your Car Might Be Featured
       </h2>

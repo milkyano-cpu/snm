@@ -7,7 +7,7 @@ import LockIcon from "@/src/icons/LockIcon";
 
 export default function SeeYouSectionMobile() {
   return (
-    <section className="py-20">
+    <section data-animate className="py-20">
       <div className="fading-border mx-auto max-w-84 py-15">
         <div className="mx-auto flex max-w-68 flex-col items-center gap-6">
           <IconPartMobile />

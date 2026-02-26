@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function HeroImagePartMobile() {
   return (
-    <div className="relative left-1/2 w-[130vw] -translate-x-1/2">
+    <div className="animate-fade-in-up animation-delay-400 relative left-1/2 w-[130vw] -translate-x-1/2">
       <Image
         src="/supercar-bike-hero.png"
         alt="Supercar and Motorcycle"

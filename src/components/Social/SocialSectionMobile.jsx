@@ -23,7 +23,7 @@ const socials = [
 
 export default function SocialSectionMobile() {
   return (
-    <section className="flex justify-center gap-4 py-22">
+    <section data-animate className="flex justify-center gap-4 py-22">
       {socials.map((social, index) => (
         <div
           key={index}

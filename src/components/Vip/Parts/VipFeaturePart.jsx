@@ -57,7 +57,7 @@ const features = [
 
 export default function VipFeaturePart() {
   return (
-    <div className="py-20">
+    <div data-animate className="py-20">
       <div className="fading-border mx-auto flex max-w-84 flex-col items-center gap-16 p-7.5">
         {features.map((feature, index) => (
           <div className="flex flex-col items-center gap-4" key={index}>

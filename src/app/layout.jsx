@@ -2,6 +2,7 @@ import { Outfit, DM_Sans } from "next/font/google";
 
 import "./globals.css";
 import Preloader from "@/src/components/Preloader";
+import ScrollAnimator from "@/src/components/ScrollAnimator";
 
 const outfit = Outfit({
   variable: "--font-outfit-var",
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
     <html lang="en" style={{ background: "#010101" }}>
       <body className={`${outfit.variable} ${dmSans.variable} antialiased`}>
         <Preloader />
+        <ScrollAnimator />
         {children}
       </body>
     </html>

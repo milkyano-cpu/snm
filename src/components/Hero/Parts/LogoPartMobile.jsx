@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function LogoPartMobile() {
   return (
-    <div className="mx-auto mb-6.5 flex max-w-52 flex-col items-center">
+    <div className="animate-fade-in-up mx-auto mb-6.5 flex max-w-52 flex-col items-center">
       <div>
         <Image
           src="https://s3.milkyano.com/snm-marketing-email/logo/snm-logo-black-bg-1.png"

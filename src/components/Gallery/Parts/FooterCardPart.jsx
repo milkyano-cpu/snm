@@ -7,7 +7,7 @@ import LockIcon from "@/src/icons/LockIcon";
 
 export default function FooterCardPart() {
   return (
-    <div className="py-48">
+    <div data-animate className="py-48">
       <div className="fading-border flex flex-col items-center gap-9 py-32">
         <div className="flex h-19.5 justify-center gap-6">
           <div>
