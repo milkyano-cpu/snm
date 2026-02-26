@@ -1,6 +1,6 @@
 export default function JargonSectionMobile() {
   return (
-    <section className="flex flex-col items-center gap-16 py-20 text-2xl">
+    <section className="bg-jargon-section-mobile flex flex-col items-center gap-16 py-20 text-2xl">
       <h3>
         Good <span className="font-bold">People</span>
       </h3>

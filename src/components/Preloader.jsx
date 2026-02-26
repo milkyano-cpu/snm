@@ -22,7 +22,7 @@ export default function Preloader() {
   // Phase 2: hold → exit (when loaded + min time met)
   useEffect(() => {
     if (phase !== "hold") {
-      return;
+      return undefined;
     }
 
     let minTimeMet = false;

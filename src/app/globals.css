@@ -606,3 +606,11 @@ html {
     #000000 100%
   );
 }
+
+.bg-jargon-section-mobile {
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.02) 0%,
+    #000000 100%
+  );
+}
