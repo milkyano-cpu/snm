@@ -452,7 +452,7 @@ export function RegistrationFormV3() {
                     submitState === "submitting" ? (
                       <Spinner className="h-10 w-10 p-1.5 text-white" />
                     ) : (
-                      <CameraIcon className="h-10 w-10 p-1.5" />
+                      <CameraIcon className="h-10 w-10 p-3" />
                     )
                   }
                   text={
