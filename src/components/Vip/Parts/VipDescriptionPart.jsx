@@ -5,7 +5,7 @@ export default function VipDescriptionPart() {
       className="mx-auto max-w-75 py-20 text-center text-2xl font-medium"
     >
       <h3 className="underline">
-        A limited VIP display area will be reserved for selected vechices
+        A limited VIP display area will be reserved for selected vehicles
       </h3>
       <br />
       <h3>
