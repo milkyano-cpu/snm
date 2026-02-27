@@ -18,7 +18,9 @@ export default function MobileView() {
         <RulesSectionMobile />
         <VipSectionMobile />
         <FeaturedCarMobile />
-        <RegistrationFormV3 />
+        <div id="registration-form-mobile">
+          <RegistrationFormV3 />
+        </div>
         <GalleryMobileSection />
         <JargonSectionMobile />
         <SeeYouSectionMobile />

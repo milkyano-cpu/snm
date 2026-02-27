@@ -542,13 +542,13 @@ body.preloader-done .animate-float {
 .reg-phone-input.react-international-phone-input-container {
   width: 100%;
   background: white !important;
-  height: 48px !important;
-  border-radius: 8px !important;
+  height: 38px !important;
+  border-radius: 4px !important;
   border: 1px solid transparent !important;
   font-family: var(--font-dm-sans-var);
   font-size: 16px;
   transition: all 0.2s;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .reg-phone-input.react-international-phone-input-container:focus-within {
@@ -578,6 +578,66 @@ body.preloader-done .animate-float {
   font-size: 16px;
   color: black;
   outline: none;
+}
+
+@media (min-width: 640px) {
+  .reg-phone-input.react-international-phone-input-container {
+    height: 48px !important;
+    border-radius: 8px !important;
+  }
+}
+
+.reg-phone-input .react-international-phone-country-selector-dropdown {
+  background: #1a1a1a !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
+  max-height: 240px;
+  z-index: 50;
+}
+
+.reg-phone-input
+  .react-international-phone-country-selector-dropdown__list-item {
+  background: transparent !important;
+  color: white !important;
+  padding: 8px 12px !important;
+  transition: background 0.15s;
+}
+
+.reg-phone-input
+  .react-international-phone-country-selector-dropdown__list-item:hover,
+.reg-phone-input
+  .react-international-phone-country-selector-dropdown__list-item--focused {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.reg-phone-input
+  .react-international-phone-country-selector-dropdown__list-item--selected {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.reg-phone-input
+  .react-international-phone-country-selector-dropdown__list-item-country-name,
+.reg-phone-input
+  .react-international-phone-country-selector-dropdown__list-item-dial-code {
+  color: white !important;
+}
+
+.reg-phone-input
+  .react-international-phone-country-selector-dropdown__list-item-dial-code {
+  opacity: 0.6;
+}
+
+.reg-phone-input
+  .react-international-phone-country-selector-dropdown__search-input {
+  background: #111 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 4px !important;
+  color: white !important;
+  padding: 6px 10px !important;
+  margin: 8px !important;
+  outline: none !important;
+  font-family: var(--font-dm-sans-var);
 }
 
 .reg-phone-input-error.react-international-phone-input-container {

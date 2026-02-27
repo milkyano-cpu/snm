@@ -15,7 +15,7 @@ export default function VipPersuasivePart() {
         <Button
           icon={<CrownIcon className="h-10 w-10 text-white" />}
           text="APPLY FOR VIP DISPLAY"
-          href="#registration-form"
+          href="#registration-form-mobile"
         />
       </div>
     </div>

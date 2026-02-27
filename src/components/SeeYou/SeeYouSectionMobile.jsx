@@ -18,6 +18,7 @@ export default function SeeYouSectionMobile() {
           <Button
             icon={<LockIcon className="h-10 w-10 p-2 text-white" />}
             text="LOCK MY SPOT"
+            href="#registration-form-mobile"
           />
         </div>
       </div>

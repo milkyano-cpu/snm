@@ -347,7 +347,6 @@ export function RegistrationFormV3() {
   return (
     <section className="pb-58">
       <div
-        id="registration-form"
         className="fading-border mx-auto flex max-w-84 flex-col items-center rounded-2xl px-10 py-15 sm:max-w-[60vw] sm:rounded-[100px] sm:px-20 sm:py-25"
       >
         {/* logo */}

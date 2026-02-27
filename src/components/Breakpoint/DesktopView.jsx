@@ -17,7 +17,9 @@ export default function DesktopView() {
         <LimitedDisplaySection />
         <VIPApplySection />
         <YourCarSection />
-        <RegistrationFormV3 />
+        <div id="registration-form">
+          <RegistrationFormV3 />
+        </div>
         <GallerySection />
       </section>
     </div>

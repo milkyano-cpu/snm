@@ -35,7 +35,7 @@ export default function SocialIconPart() {
           />
         </div>
       </a>
-      <div className="flex min-h-12 min-w-12 items-center justify-center rounded-md border">
+      {/* <div className="flex min-h-12 min-w-12 items-center justify-center rounded-md border">
         <div className="h-8">
           <Image
             src="/icons/tiktok-icon.png"
@@ -45,7 +45,7 @@ export default function SocialIconPart() {
             className="h-full w-full"
           />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

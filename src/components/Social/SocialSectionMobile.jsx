@@ -15,13 +15,13 @@ const socials = [
     height: 40,
     href: "https://www.facebook.com/p/Sunday-Night-Meet-61572629826095/",
   },
-  {
-    src: "/icons/tiktok-icon.png",
-    alt: "Tiktok Icon",
-    width: 44,
-    height: 39,
-    href: null,
-  },
+  // {
+  //   src: "/icons/tiktok-icon.png",
+  //   alt: "Tiktok Icon",
+  //   width: 44,
+  //   height: 39,
+  //   href: null,
+  // },
 ];
 
 export default function SocialSectionMobile() {
